@@ -1,3 +1,16 @@
 {
+  "properties.button": "Tenho interesse",
 
+  "modal.title": "Por gentileza, preencha os campos abaixo",
+  "modal.field-name": "Nome",
+  "modal.field-name-placeholder": "Seu nome",
+  "modal.field-email": "E-mail",
+  "modal.field-email-placeholder": "Seu melhor e-mail",
+  "modal.button": "Envie seu contato",
+  "modal.success-title": "Obrigado por confiar em nós!",
+  "modal.success-text": "Em breve, um de nossos especialistas entrar em contato para fornecer todas as informações necessárias. Estamos ansiosos para ajudar você a encontrar o lar dos seus sonhos!",
+  "modal.alt.close": "Ícone de X para fechar o modal",
+  "modal.alt.gif": "Gif de Verificação",
+
+  "form.required-field": "Campo obrigatório"
 }

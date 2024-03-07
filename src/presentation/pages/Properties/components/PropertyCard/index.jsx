@@ -11,6 +11,8 @@ import {
 import { Tag } from '../../../../components/Tag'
 import { Carousel } from '../../../../components/Carousel'
 
+import { useTranslation } from 'react-i18next'
+
 import garageIcon from '../../../../assets/garageIcon.svg'
 import roomIcon from '../../../../assets/room-icon.svg'
 import squareIcon from '../../../../assets/square-icon.svg'
@@ -54,6 +56,9 @@ export function PropertyCard({
   ...rest
 }) {
   const [details, _] = useState(Object.keys(propertyInfo.details))
+
+  const { t } = useTranslation()
+
   return (
     <Container {...rest}>
       <ImageSection>
@@ -86,7 +91,7 @@ export function PropertyCard({
           size="large"
           onClick={() => onInterestingProperty(propertyInfo.RKCode)}
         >
-          Tenho interesse
+          {t('properties.button')}
         </PropertiesButton>
       </DescriptionSection>
     </Container>

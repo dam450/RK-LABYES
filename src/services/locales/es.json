@@ -1,3 +1,16 @@
 {
+  "properties.button": "Me interesa",
 
+  "modal.title": "Por favor complete los campos a continuación",
+  "modal.field-name": "Nombre",
+  "modal.field-name-placeholder": "Su nombre",
+  "modal.field-email": "Correo electrónico",
+  "modal.field-email-placeholder": "Tu mejor correo electrónico",
+  "modal.button": "Envía tu contacto",
+  "modal.success-title": "¡Gracias por confiar en nosotros!",
+  "modal.success-text": "Uno de nuestros expertos se pondrá en contacto en breve para brindarle toda la información necesaria. ¡Esperamos poder ayudarle a encontrar la casa de sus sueños!",
+  "modal.alt.close": "Icono X para cerrar el modal.",
+  "modal.alt.gif": "GIF de verificación",
+
+  "form.required-field": "Campo obligatorio"
 }
