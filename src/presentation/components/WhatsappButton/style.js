@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.button`
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 #fdfdfd;
+    }
+
+    100% {
+      box-shadow: 0 0 0 clamp(1rem, 0.5768rem + 1.1161vw, 2.3125rem) #69ffa800;
+    }
+  }
   @keyframes appear {
     from {
       transform: translateY(-10vh);
@@ -11,18 +20,38 @@ export const Container = styled.button`
       opacity: 1;
     }
   }
+  display: flex;
+
+  position: fixed;
+  bottom: 2.2rem;
+  right: 3.2rem;
+
+  z-index: 3;
 
   background: none;
   border: none;
 
   a {
-    position: fixed;
-    bottom: 2.2rem;
-    right: 3.2rem;
-
-    z-index: 3;
+    position: relative;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
 
     transition: all 0.3s ease-in;
+
+    animation: appear 1.8s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 6%;
+      top: 1%;
+      width: 87%;
+      height: 87%;
+      border-radius: 50%;
+      animation: 1.6s pulse infinite ease-in-out;
+    }
 
     > svg {
       > g {
@@ -44,8 +73,6 @@ export const Container = styled.button`
       transform: scale(1.1);
       filter: brightness(150%);
     }
-
-    animation: appear 1.8s;
 
     @media (max-width: 768px) {
       > img {
