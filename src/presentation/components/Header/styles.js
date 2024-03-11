@@ -48,6 +48,21 @@ export const Container = styled.div`
       backdrop-filter: blur(0);
     }
   }
+
+  > .logo-lang-wrapper {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+
+    gap: 1rem;
+
+    @media screen and (max-width: 425px) {
+      width: fit-content;
+    }
+  }
 `
 export const Logo = styled(NavLink)`
   img {

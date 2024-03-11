@@ -1,12 +1,11 @@
-import { Container, Logo, Links, LinkWrapper } from './styles'
-
+import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import { useState } from 'react'
-
-import { NavLink } from 'react-router-dom'
 import { Hamburger } from './Hamburger'
+import { LangButton } from '../LangButton'
 
+import { Container, Logo, Links, LinkWrapper } from './styles'
 import logoRKI from '../../assets/logoRKI.svg'
 
 const routes = [
@@ -31,9 +30,13 @@ export function Header({ paths = routes }) {
 
   return (
     <Container $opened={openMenuHambuger}>
-      <Logo to={paths[0].route}>
-        <img src={logoRKI} alt="Logo da RK Imóveis" />
-      </Logo>
+      <div className="logo-lang-wrapper">
+        <Logo to={paths[0].route}>
+          <img src={logoRKI} alt="Logo da RK Imóveis" />
+        </Logo>
+
+        <LangButton />
+      </div>
 
       <Hamburger
         $opened={openMenuHambuger}
