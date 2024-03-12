@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 import { sendMail } from '../../../../../services/sendMail'
 import { toast } from 'react-toastify'
@@ -13,6 +14,8 @@ import { FormContainer, ShortButton } from './styles'
 export function ContactForm() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const { t } = useTranslation()
 
   const { email: brokerEmail } = useBrokerProfile()
   const devMode = import.meta.env.DEV
@@ -66,15 +69,16 @@ export function ContactForm() {
       <div className="fieldsContainer">
         <fieldset>
           <legend>
-            <span> Dados pessoais</span>
+            <span>{t('contact.form-title')} </span>
           </legend>
 
           <div className="inputWrapper">
             <label htmlFor="name">
-              Nome <span>(Campo obrigatório):</span>
+              {t('contact.form-field-name')}
+              <span> ({t('form.required-field')}):</span>
             </label>
             <TextInput
-              placeholder="Digite seu nome"
+              placeholder={t('contact.form-field-name-placeholder')}
               name="name"
               id="name"
               required
@@ -84,9 +88,9 @@ export function ContactForm() {
 
           <div className="inRow">
             <div className="inputWrapper">
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email">{t('contact.form-field-email')} :</label>
               <TextInput
-                placeholder="Digite seu e-mail"
+                placeholder={t('contact.form-field-email-placeholder')}
                 type="email"
                 name="email"
                 id="email"
@@ -96,7 +100,7 @@ export function ContactForm() {
 
             <div className="inputWrapper">
               <label htmlFor="whatsapp">
-                Whatsapp <span>(Campo obrigatório):</span>
+                Whatsapp <span> ({t('form.required-field')}):</span>
               </label>
               <TextInput
                 placeholder="+55 (00) 00000-0000"
@@ -112,64 +116,90 @@ export function ContactForm() {
 
         <fieldset>
           <legend>
-            <span>Imóvel</span>
+            <span>{t('contact.form-subtitle')}</span>
           </legend>
 
           <div className="inRow">
             <div className="inputWrapper">
-              <label htmlFor="local">Localização desejada: </label>
+              <label htmlFor="local">
+                {t('contact.form-field-location')}:{' '}
+              </label>
               <TextInput
-                placeholder="Cidade, bairro..."
+                placeholder={t('contact.form-field-location-placeholder')}
                 name="local"
                 id="local"
               />
             </div>
 
             <div className="inputWrapper">
-              <label htmlFor="purpose">Finalidade:</label>
+              <label htmlFor="purpose">
+                {t('contact.form-field-purpose')}:
+              </label>
               <SelectOption name="purpose" id="purpose" defaultValue="">
                 <option value="" hidden>
-                  Selecione
+                  {t('contact.form-field-select-placeholder')}
                 </option>
-                <option value="comprar">Comprar</option>
-                <option value="vender">Vender</option>
+                <option value="comprar">
+                  {t('contact.form-field-purpose-option-one')}
+                </option>
+                <option value="vender">
+                  {t('contact.form-field-purpose-option-two')}
+                </option>
               </SelectOption>
             </div>
           </div>
 
           <div className="inRow">
             <div className="inputWrapper">
-              <label htmlFor="category">Categoria:</label>
+              <label htmlFor="category">
+                {t('contact.form-field-category')}:
+              </label>
               <SelectOption name="category" id="category" defaultValue="">
                 <option value="" hidden>
-                  Selecione
+                  {t('contact.form-field-select-placeholder')}
                 </option>
-                <option value="apartmento">Apartamento</option>
-                <option value="casa">Casa</option>
-                <option value="galpão">Galpão</option>
-                <option value="terreno">Terreno</option>
-                <option value="outros">outros</option>
+                <option value="apartmento">
+                  {t('contact.form-field-category-option-one')}
+                </option>
+                <option value="casa">
+                  {t('contact.form-field-category-option-two')}
+                </option>
+                <option value="galpão">
+                  {t('contact.form-field-category-option-three')}
+                </option>
+                <option value="terreno">
+                  {t('contact.form-field-category-option-four')}
+                </option>
+                <option value="outros">
+                  {t('contact.form-field-category-option-five')}
+                </option>
               </SelectOption>
             </div>
 
             <div className="inputWrapper">
-              <label htmlFor="bedroom">Quartos:</label>
+              <label htmlFor="bedroom">
+                {t('contact.form-field-bedrooms')}:
+              </label>
               <SelectOption name="bedroom" id="bedroom" defaultValue="">
                 <option value="" hidden>
-                  Selecione
+                  {t('contact.form-field-select-placeholder')}
                 </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5 ou mais">5 ou mais</option>
+                <option value="5 ou mais">
+                  {t('contact.form-field-bedrooms-option-five')}
+                </option>
               </SelectOption>
             </div>
           </div>
 
           <div className="inRow">
             <div className="inputWrapper">
-              <label htmlFor="min_value">Valor mínimo:</label>
+              <label htmlFor="min_value">
+                {t('contact.form-field-min-value')}:
+              </label>
               <TextInput
                 min={100}
                 placeholder="Mín (R$)"
@@ -180,7 +210,9 @@ export function ContactForm() {
             </div>
 
             <div className="inputWrapper">
-              <label htmlFor="max_value">Valor máximo:</label>
+              <label htmlFor="max_value">
+                {t('contact.form-field-max-value')}:
+              </label>
               <TextInput
                 min={100}
                 placeholder="Máx (R$)"
@@ -192,9 +224,11 @@ export function ContactForm() {
           </div>
 
           <div className="inputWrapper">
-            <label htmlFor="extra_info">Informações extras:</label>
+            <label htmlFor="extra_info">
+              {t('contact.form-field-textarea')}:
+            </label>
             <TextArea
-              placeholder="Preferências de imóveis na planta e/ou interesse do imóvel..."
+              placeholder={t('contact.form-field-textarea-placeholder')}
               name="extra_info"
               id="extra_info"
               rows="6"
@@ -204,15 +238,14 @@ export function ContactForm() {
       </div>
       <footer>
         <p>
-          Ao informar meus dados eu concordo com a{' '}
+          {t('contact.form-footer-text')}{' '}
           <a href="/privatePolicy" target="_blank">
-            Política de Privacidade
+            {t('contact.form-footer-link')}
           </a>
-          .
         </p>
 
         <ShortButton size="small" type="submit" isLoading={isFormSubmitted}>
-          Enviar
+          {t('contact.form-button')}
         </ShortButton>
       </footer>
 

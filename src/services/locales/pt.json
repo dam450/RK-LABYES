@@ -1,6 +1,5 @@
 {
   "properties.button": "Tenho interesse",
-
   "modal.title": "Por gentileza, preencha os campos abaixo",
   "modal.field-name": "Nome",
   "modal.field-name-placeholder": "Seu nome",
@@ -11,6 +10,32 @@
   "modal.success-text": "Em breve, um de nossos especialistas entrar em contato para fornecer todas as informações necessárias. Estamos ansiosos para ajudar você a encontrar o lar dos seus sonhos!",
   "modal.alt.close": "Ícone de X para fechar o modal",
   "modal.alt.gif": "Gif de Verificação",
-
-  "form.required-field": "Campo obrigatório"
+  "form.required-field": "Campo obrigatório",
+  "contact.form-title": "Dados pessoais",
+  "contact.form-field-name": "Nome",
+  "contact.form-field-name-placeholder": "Digite seu nome",
+  "contact.form-field-email": "Email",
+  "contact.form-field-email-placeholder": "Digite seu email",
+  "contact.form-subtitle": "Imóvel",
+  "contact.form-field-location": "Localização desejada",
+  "contact.form-field-location-placeholder": "Cidade, bairro...",
+  "contact.form-field-purpose": "Finalidade",
+  "contact.form-field-select-placeholder": "Selecione",
+  "contact.form-field-purpose-option-one": "Comprar",
+  "contact.form-field-purpose-option-two": "Vender",
+  "contact.form-field-category": "Categoria",
+  "contact.form-field-category-option-one": "Apartamento",
+  "contact.form-field-category-option-two": "Casa",
+  "contact.form-field-category-option-three": "Galpão",
+  "contact.form-field-category-option-four": "Terreno",
+  "contact.form-field-category-option-five": "Outros",
+  "contact.form-field-bedrooms": "Quartos",
+  "contact.form-field-bedrooms-option-five": "5 ou mais",
+  "contact.form-field-min-value": "Valor mínimo",
+  "contact.form-field-max-value": "Valor máximo",
+  "contact.form-field-textarea": "Informações extras",
+  "contact.form-field-textarea-placeholder": "Preferências de imóveis na planta e/ou interesse do imóvel...",
+  "contact.form-footer-text": "Ao informar meus dados eu concordo com a",
+  "contact.form-footer-link": "Política de Privacidade.",
+  "contact.form-button": "Enviar"
 }

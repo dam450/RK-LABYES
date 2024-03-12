@@ -1,6 +1,5 @@
 {
   "properties.button": "Me interesa",
-
   "modal.title": "Por favor complete los campos a continuación",
   "modal.field-name": "Nombre",
   "modal.field-name-placeholder": "Su nombre",
@@ -11,6 +10,32 @@
   "modal.success-text": "Uno de nuestros expertos se pondrá en contacto en breve para brindarle toda la información necesaria. ¡Esperamos poder ayudarle a encontrar la casa de sus sueños!",
   "modal.alt.close": "Icono X para cerrar el modal.",
   "modal.alt.gif": "GIF de verificación",
-
-  "form.required-field": "Campo obligatorio"
+  "form.required-field": "Campo obligatorio",
+  "contact.form-title": "Datos personales",
+  "contact.form-field-name": "Nombre",
+  "contact.form-field-name-placeholder": "Escriba su nombre",
+  "contact.form-field-email": "Correo electrónico",
+  "contact.form-field-email-placeholder": "Escribe tu correo electrónico",
+  "contact.form-subtitle": "Inmóvil",
+  "contact.form-field-location": "Ubicación deseada",
+  "contact.form-field-location-placeholder": "Ciudad, barrio...",
+  "contact.form-field-purpose": "Objetivo",
+  "contact.form-field-select-placeholder": "Seleccionar",
+  "contact.form-field-purpose-option-one": "Compra",
+  "contact.form-field-purpose-option-two": "Vender",
+  "contact.form-field-category": "Categoría",
+  "contact.form-field-category-option-one": "Departamento",
+  "contact.form-field-category-option-two": "Hogar",
+  "contact.form-field-category-option-three": "Cobertizo",
+  "contact.form-field-category-option-four": "Suelo",
+  "contact.form-field-category-option-five": "Otros",
+  "contact.form-field-bedrooms": "Dormitorios",
+  "contact.form-field-bedrooms-option-five": "5 o más",
+  "contact.form-field-min-value": "Valor mínimo",
+  "contact.form-field-max-value": "Valor máximo",
+  "contact.form-field-textarea": "Información extra",
+  "contact.form-field-textarea-placeholder": "Preferencias de propiedades en el plano y/o interés en la propiedad...",
+  "contact.form-footer-text": "Al facilitar mis datos acepto la",
+  "contact.form-footer-link": "Política de Privacidad.",
+  "contact.form-button": "Mandar"
 }
