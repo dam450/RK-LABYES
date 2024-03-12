@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next'
 import { Container } from './styles'
 
 export function Footer() {
+  const { t } = useTranslation()
   const year = new Date().getFullYear()
 
   return (
@@ -16,7 +18,7 @@ export function Footer() {
             Team Lab Yes!
           </a>
         </b>{' '}
-        <span>Todos os direitos reservados.</span>
+        <span>{t('footer.footer-span')}</span>
       </p>
     </Container>
   )
