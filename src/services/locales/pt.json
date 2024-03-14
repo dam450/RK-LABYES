@@ -1,4 +1,8 @@
 {
+  "header.home": "inicio",
+  "header.profile":"perfil",
+  "header.properties":"Imóveis",
+  "header.contact":"contato",
   "properties.button": "Tenho interesse",
   "modal.title": "Por gentileza, preencha os campos abaixo",
   "modal.field-name": "Nome",

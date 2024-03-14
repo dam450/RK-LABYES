@@ -1,4 +1,8 @@
 {
+  "header.home": "inicio",
+  "header.profile":"perfil",
+  "header.properties":"propiedades",
+  "header.contact":"contacto",
   "properties.button": "Me interesa",
   "modal.title": "Por favor complete los campos a continuación",
   "modal.field-name": "Nombre",

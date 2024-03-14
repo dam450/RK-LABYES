@@ -1,5 +1,7 @@
 import { Container, Logo, Links, LinkWrapper } from './styles'
 
+import { useTranslation } from 'react-i18next'
+
 import { useState } from 'react'
 
 import { NavLink } from 'react-router-dom'
@@ -8,10 +10,10 @@ import { Hamburger } from './Hamburger'
 import logoRKI from '../../assets/logoRKI.svg'
 
 const routes = [
-  { route: '/', name: 'home' },
-  { route: 'profile', name: 'perfil' },
-  { route: 'properties', name: 'imóveis' },
-  { route: 'contact', name: 'contato' },
+  { route: '/', key: 'header.home' },
+  { route: '/profile', key: 'header.profile' },
+  { route: '/properties', key: 'header.properties' },
+  { route: '/contact', key: 'header.contact' },
 ]
 
 /**
@@ -22,6 +24,7 @@ const routes = [
  */
 export function Header({ paths = routes }) {
   const [openMenuHambuger, setOpenMenuHambuger] = useState(false)
+  const { t } = useTranslation()
   function handleOpenMenuHambuger() {
     return setOpenMenuHambuger(!openMenuHambuger)
   }
@@ -40,9 +43,9 @@ export function Header({ paths = routes }) {
 
       <Links $opened={openMenuHambuger}>
         {paths.slice(1).map(path => (
-          <LinkWrapper key={path.name} onClick={handleOpenMenuHambuger}>
+          <LinkWrapper key={path.key} onClick={handleOpenMenuHambuger}>
             <NavLink to={path.route}>
-              <span>{path.name}</span>
+              <span>{t(path.key)}</span>
             </NavLink>
           </LinkWrapper>
         ))}
