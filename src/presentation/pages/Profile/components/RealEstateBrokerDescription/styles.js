@@ -16,6 +16,7 @@ export const Container = styled.div`
     justify-content: space-between;
     padding: 2.4rem 2.8rem 2.4rem 3.5rem;
     border-radius: 5.5rem 1.6rem 1.6rem 1.6rem;
+    height: 36rem;
 
     article {
       margin: 0 0 0 0;
