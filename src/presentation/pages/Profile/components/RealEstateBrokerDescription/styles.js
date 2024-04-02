@@ -93,9 +93,19 @@ export const TitleGroup = styled.div`
     font-weight: 300;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 1.6rem;
-    gap: 8.4rem;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: 1.2rem;
+
+    h4,
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     h4 {
       font-size: 3.6rem;
