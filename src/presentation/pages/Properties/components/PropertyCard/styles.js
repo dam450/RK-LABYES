@@ -64,6 +64,13 @@ export const Header = styled.div`
   font-style: normal;
   font-weight: 700;
 
+  > h2,
+  > h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   > h2 {
     color: ${({ theme }) => theme.COLORS['blue-sky-700']};
     font-size: 2.4rem;
@@ -79,12 +86,14 @@ export const Header = styled.div`
   @media (min-width: 1024px) {
     display: grid;
     gap: 1.6rem;
+
+    font-style: normal;
     > h2 {
-      font-size: 3.6rem;
+      font-size: 3.2rem;
     }
 
     > h3 {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
     }
   }
 `
