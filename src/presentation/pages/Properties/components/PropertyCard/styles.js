@@ -126,7 +126,7 @@ export const Tags = styled.div`
   }
 `
 
-export const Description = styled.p`
+export const Description = styled.section`
   font-family: ${({ theme }) => theme.FONTS.Secundary};
   font-size: 1.2rem;
   font-style: normal;
@@ -140,6 +140,12 @@ export const Description = styled.p`
   scrollbar-width: auto;
 
   scrollbar-color: ${({ theme }) => theme.COLORS['zinc-400']} transparent;
+
+  > p small {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+  }
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -156,6 +162,10 @@ export const Description = styled.p`
   }
   @media (min-width: 1024px) {
     font-size: 1.6rem;
+
+    > p small {
+      font-size: 1.2rem;
+    }
   }
 `
 

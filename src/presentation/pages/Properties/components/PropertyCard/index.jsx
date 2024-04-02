@@ -85,7 +85,12 @@ export function PropertyCard({
               />
             ))}
         </Tags>
-        <Description>{propertyInfo.description}</Description>
+        <Description>
+          <p>{propertyInfo.description}</p>
+          <p>
+            <small>Informações sujeitas a alterações sem aviso prévio.</small>
+          </p>
+        </Description>
         <Price>{`${propertyInfo.price}`}</Price>
         <PropertiesButton
           size="large"
