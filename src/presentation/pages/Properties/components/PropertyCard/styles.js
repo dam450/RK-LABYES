@@ -74,13 +74,11 @@ export const Header = styled.div`
   > h2 {
     color: ${({ theme }) => theme.COLORS['blue-sky-700']};
     font-size: 2.4rem;
-    line-height: 100%;
   }
 
   > h3 {
     color: ${({ theme }) => theme.COLORS['zinc-400']};
     font-size: 1.6rem;
-    line-height: 100%;
   }
 
   @media (min-width: 1024px) {
