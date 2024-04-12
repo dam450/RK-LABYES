@@ -93,7 +93,7 @@ export function PropertyCard({
           >
             {propertyInfo.description}
           </Markdown>
-          <p>
+          <p className="disclaimer">
             <small>Informações sujeitas a alterações sem aviso prévio.</small>
           </p>
         </Description>

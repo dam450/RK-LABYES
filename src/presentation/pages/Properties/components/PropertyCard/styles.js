@@ -132,39 +132,55 @@ export const Description = styled.section`
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
-  max-height: 14rem;
+  height: 14rem;
   padding-right: 1rem;
   color: ${({ theme }) => theme.COLORS['blue-sky-700']};
 
   overflow-y: auto;
-  scrollbar-width: auto;
+  overflow-x: hidden;
 
-  scrollbar-color: ${({ theme }) => theme.COLORS['zinc-400']} transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
 
-  > p small {
+  > .disclaimer {
     font-size: 1rem;
     font-style: italic;
     font-weight: 700;
   }
 
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.COLORS['zinc-400']};
-    border-radius: 10px;
-    border: 3px none transparent;
-  }
   @media (min-width: 1024px) {
     font-size: 1.6rem;
 
     > p small {
       font-size: 1.2rem;
+    }
+  }
+
+  @supports (scrollbar-width: thin) {
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme.COLORS['zinc-400']} transparent;
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.COLORS['zinc-400']};
+      border-radius: 10px;
+      border: 3px none transparent;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: ${({ theme }) => theme.COLORS['zinc-200']};
     }
   }
 `
