@@ -6,7 +6,7 @@ import VideoCameraSlash from '../../assets/VideoCameraSlash.svg'
 
 import video from '../../assets/video-sample.mp4'
 
-export function Video({ src = video, ...rest }) {
+export function Video({ src = video, poster = null, ...rest }) {
   const [videoError, setVideoError] = useState(false)
 
   return (
@@ -16,6 +16,7 @@ export function Video({ src = video, ...rest }) {
           controls
           autoPlay
           muted
+          poster={poster}
           onError={() => setVideoError(true)}
           {...rest}
         >

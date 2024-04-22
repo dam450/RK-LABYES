@@ -19,7 +19,10 @@ import mapPinIcon from '../../../../assets/map-pin-icon.svg'
  * @return {JSX.Element} the rendered broker description
  */
 export function RealEstateBrokerDescription({ brokerData }) {
-  const { title, paragraph } = brokerData.description
+  const {
+    description: { title, paragraph },
+    clientReview,
+  } = brokerData
   const phoneDigits = brokerData.phone.replace(/\D/g, '')
 
   return (
@@ -31,7 +34,7 @@ export function RealEstateBrokerDescription({ brokerData }) {
       <article>
         <TitleGroup>
           <h4>{brokerData.name}</h4>
-          <span>CRECI {brokerData.CRECI}</span>
+          <span>CRECI/SC {brokerData.CRECI}</span>
         </TitleGroup>
 
         <CopyGroup>
@@ -77,15 +80,13 @@ export function RealEstateBrokerDescription({ brokerData }) {
           </a>
         </LinksCard>
 
-        <CommentCard>
-          <p>
-            &rdquo;Eu e meu marido adquirimos um imóvel através do corretor
-            Winnetou Martins e fomos muito bem tratados do início até a
-            conclusão da compra. Ele é hábil, competente e atencioso.&rdquo;
-          </p>
+        {clientReview?.review && clientReview?.client && (
+          <CommentCard>
+            <p>&rdquo;{clientReview.review}&rdquo;</p>
 
-          <h3>Valzira Souza - Advogada</h3>
-        </CommentCard>
+            <h3>{clientReview.client}</h3>
+          </CommentCard>
+        )}
       </div>
     </Container>
   )

@@ -26,7 +26,7 @@ export function Carousel({
 
   const cardOption = {
     type: length === PER_PAGE_DESKTOP ? '' : 'slide',
-    arrows: true,
+    arrows: false,
     navigation: true,
     perPage: PER_PAGE_DESKTOP,
     gap: '6.4rem',

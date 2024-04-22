@@ -120,6 +120,15 @@ export const Form = styled.form`
 
   button[type='submit'] {
     padding: 1.6rem 3.2rem;
+    background-color: ${({ theme }) => theme.COLORS.orange};
+    color: ${({ theme }) => theme.COLORS['blue-sky-700']};
+
+    transition: all 0.3s;
+    &:hover {
+      background-color: ${({ theme }) => theme.COLORS['orange']};
+      filter: brightness(1.1);
+    }
+    
     @media screen and (min-width: 524px) {
       font-size: 2rem;
     }

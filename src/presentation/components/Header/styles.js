@@ -53,7 +53,7 @@ export const Logo = styled(NavLink)`
   img {
     width: 16rem;
     @media (min-width: 1024px) {
-      width: 20rem;
+      width: 22rem;
     }
   }
 `

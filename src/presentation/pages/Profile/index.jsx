@@ -14,9 +14,9 @@ export function Profile() {
       <RealEstateBrokerDescription brokerData={brokerProfile} />
 
       <Carousel option="card" length={quotes.length}>
-        {quotes.map(quote => (
+        {quotes.map((quote, index) => (
           <SplideSlide key={quote.id}>
-            <Card key={quote.id} {...quote} />
+            <Card key={quote.id} {...quote} counter={index+1} />
           </SplideSlide>
         ))}
       </Carousel>

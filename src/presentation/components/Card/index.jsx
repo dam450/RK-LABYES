@@ -7,9 +7,9 @@ import { CardContainer } from './styles'
  * @param {string | undefined} author - The optional author of the quote.
  * @return {JSX.Element} The rendered card component.
  */
-export function Card({ quote, author = undefined }) {
+export function Card({ counter = false, quote, author = undefined }) {
   return (
-    <CardContainer>
+    <CardContainer data-count={counter} $counter={counter}>
       <blockquote>{`"${quote}"`}</blockquote>
       {author && <cite>{author}</cite>}
     </CardContainer>

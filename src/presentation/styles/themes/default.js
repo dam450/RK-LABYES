@@ -20,6 +20,8 @@ export const defaultTheme = {
     'blue-sky-700': '#091030',
     'blue-hover': '#192576',
 
+    orange: '#F3A82F',
+
     tomate: '#ff5353',
   },
 

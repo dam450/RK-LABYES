@@ -39,6 +39,7 @@ Reconhecendo a importância de adotar uma perspectiva diferenciada para se adapt
 | blue-600   | ![#10184d](https://via.placeholder.com/10/10184d?text=+) #10184d |
 | blue-700   | ![#091030](https://via.placeholder.com/10/091030?text=+) #091030 |
 | tomate     | ![#ff5353](https://via.placeholder.com/10/ff5353?text=+) #ff5353 |
+| orange     | ![#f3a82f](https://via.placeholder.com/10/f3a82f?text=+) #f3a82f |
 | background | linear-gradient (270deg, #031E4C 0.05%, #1164A2 94.23%)          |
 
 ## 📃 Fontes

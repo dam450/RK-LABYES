@@ -31,6 +31,13 @@
  */
 
 /**
+ * The Review of the Client info
+ * @typedef {Object} ClientReview
+ * @property {string} review - The review.
+ * @property {string} client - The name and title of the client.
+ */
+
+/**
  * The broker profile.
  * @typedef {Object} BrokerProfile
  * @property {string} id - indicates the unique identifier of the broker.
@@ -41,6 +48,7 @@
  * @property {Address} address - indicates the address of the broker.
  * @property {string} phone - indicates the phone number of the broker.
  * @property {string} email - indicates the email of the broker.
+ * @property {ClientReview} [clientReview] - indicates the review of the client.  <optional>
  * @property {Array<BrokerComments>} comments - indicates the comments to the broker.
  * @property {Array<BrokerTips>} tips - indicates the tips of the broker.
  *
@@ -68,6 +76,11 @@ const brokerProfile = {
   },
   phone: '(48) 98826-2951 ',
   email: 'winnetou@rkimoveis.com.br',
+  clientReview: {
+    review:
+      'Eu e meu marido adquirimos um imóvel através do corretor Winnetou Martins e fomos muito bem tratados do início até a conclusão da compra. Ele é hábil, competente e atencioso.',
+    client: 'Valzira Souza - Advogada',
+  },
   comments: [
     {
       id: crypto.randomUUID(),

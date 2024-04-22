@@ -16,6 +16,7 @@ export const Container = styled.div`
     justify-content: space-between;
     padding: 2.4rem 2.8rem 2.4rem 3.5rem;
     border-radius: 5.5rem 1.6rem 1.6rem 1.6rem;
+    height: 36rem;
 
     article {
       margin: 0 0 0 0;
@@ -26,13 +27,7 @@ export const Container = styled.div`
   .description_card_footer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 1.2rem;
-
-    @media screen and (max-width: 1440px) {
-      justify-content: flex-start;
-      gap: 2rem;
-    }
   }
 `
 
@@ -98,9 +93,19 @@ export const TitleGroup = styled.div`
     font-weight: 300;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 1.6rem;
-    gap: 8.4rem;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: 1.2rem;
+
+    h4,
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     h4 {
       font-size: 3.6rem;
@@ -122,7 +127,7 @@ export const CopyGroup = styled.div`
     line-height: 140%;
     font-size: 1.2rem;
     font-family: ${({ theme }) => theme.FONTS.Secondary};
-    text-align: left;
+    text-align: justify;
   }
 
   strong {
@@ -137,6 +142,7 @@ export const CopyGroup = styled.div`
     p {
       font-size: 1.6rem;
       padding-right: 1.2rem;
+      text-align: justify;
     }
 
     .paragraphs {
@@ -223,15 +229,12 @@ export const LinksCard = styled.div`
 
 export const CommentCard = styled.div`
   padding: 2.2rem 1.4rem 1rem;
-
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-
   border-radius: 1.6rem;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-
   text-align: center;
 
   p {
@@ -245,7 +248,6 @@ export const CommentCard = styled.div`
 
   h3 {
     color: #758df4;
-
     font-family: Roboto;
     font-size: 14px;
     font-style: normal;
@@ -256,7 +258,6 @@ export const CommentCard = styled.div`
   @media screen and (min-width: 1440px) {
     padding: 2.3rem 1.6rem 1rem;
     color: ${({ theme }) => theme.COLORS.white};
-
     max-width: 27rem;
     width: 100%;
   }

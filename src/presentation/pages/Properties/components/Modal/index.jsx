@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 import { sendMail } from '../../../../../services/sendMail'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 
+import { useTranslation } from 'react-i18next'
+
 import { Button } from '../../../../components/Button'
 import {
   Container,
@@ -36,6 +38,8 @@ export function Modal({
 }) {
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(success)
+
+  const { t } = useTranslation()
 
   const { email } = useBrokerProfile()
 
@@ -109,21 +113,21 @@ export function Modal({
           <Header>
             <img
               src={closeIcon}
-              alt="Ícone de X para fechar o modal"
+              alt={t('modal.alt.close')}
               onClick={handleCloseModal}
             />
           </Header>
 
-          <Title>Por gentileza, preencha os campos abaixo:</Title>
+          <Title>{t('modal.title')}:</Title>
 
           <Form onSubmit={handleSubmit}>
             <label htmlFor="name">
-              Nome: <span>(Campo obrigatório)</span>
+              {t('modal.field-name')}: <span>({t('form.required-field')})</span>
             </label>
             <input
               name="name"
               id="name"
-              placeholder="Seu nome"
+              placeholder={t('modal.field-name-placeholder')}
               minLength="2"
               required
               title=""
@@ -131,12 +135,12 @@ export function Modal({
 
             <InputGroup>
               <div>
-                <label htmlFor="email">E-mail:</label>
+                <label htmlFor="email">{t('modal.field-email')}:</label>
                 <input
                   name="email"
                   type="email"
                   id="email"
-                  placeholder="Seu melhor e-mail"
+                  placeholder={t('modal.field-email-placeholder')}
                   pattern=".*\.com$"
                   title=""
                 />
@@ -144,7 +148,7 @@ export function Modal({
 
               <div>
                 <label htmlFor="whatsapp">
-                  Whatsapp: <span>(Campo obrigatório)</span>
+                  Whatsapp: <span>({t('form.required-field')})</span>
                 </label>
 
                 <input
@@ -161,7 +165,7 @@ export function Modal({
             </InputGroup>
 
             <Button type="submit" isLoading={isLoading}>
-              Envie seu contato
+              {t('modal.button')}
             </Button>
           </Form>
         </DefaultModal>
@@ -170,7 +174,7 @@ export function Modal({
           <Header>
             <img
               src={closeIcon}
-              alt="Ícone de X para fechar o modal"
+              alt={t('modal.alt.close')}
               onClick={handleCloseModal}
             />
           </Header>
@@ -178,17 +182,13 @@ export function Modal({
           <SuccessBody>
             <img
               src="https://i.ibb.co/tKDWfbN/verified-Copy.gif"
-              alt="Gif de Verificação"
+              alt={t('modal.alt.gif')}
               className="verifiedGif"
             />
 
-            <SuccessTitle>Obrigado por confiar em nós!</SuccessTitle>
+            <SuccessTitle>{t('modal.success-title')}</SuccessTitle>
 
-            <SuccessText>
-              Em breve, um de nossos especialistas entrará em contato para
-              fornecer todas as informações necessárias. Estamos ansiosos para
-              ajudar você a encontrar o lar dos seus sonhos!
-            </SuccessText>
+            <SuccessText>{t('modal.success-text')}</SuccessText>
           </SuccessBody>
         </SuccessModal>
       )}

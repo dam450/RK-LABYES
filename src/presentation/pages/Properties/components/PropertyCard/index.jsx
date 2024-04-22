@@ -11,11 +11,14 @@ import {
 import { Tag } from '../../../../components/Tag'
 import { Carousel } from '../../../../components/Carousel'
 
+import { useTranslation } from 'react-i18next'
+
 import garageIcon from '../../../../assets/garageIcon.svg'
 import roomIcon from '../../../../assets/room-icon.svg'
 import squareIcon from '../../../../assets/square-icon.svg'
 import showerIcon from '../../../../assets/shower-icon.svg'
 import { SplideSlide } from '@splidejs/react-splide'
+import Markdown from 'markdown-to-jsx'
 
 import { useState } from 'react'
 
@@ -54,6 +57,9 @@ export function PropertyCard({
   ...rest
 }) {
   const [details, _] = useState(Object.keys(propertyInfo.details))
+
+  const { t } = useTranslation()
+
   return (
     <Container {...rest}>
       <ImageSection>
@@ -80,13 +86,23 @@ export function PropertyCard({
               />
             ))}
         </Tags>
-        <Description>{propertyInfo.description}</Description>
+        <Description>
+          <Markdown
+            options={{ disableParsingRawHTML: true }}
+            className="description-text"
+          >
+            {propertyInfo.description}
+          </Markdown>
+          <p className="disclaimer">
+            <small>Informações sujeitas a alterações sem aviso prévio.</small>
+          </p>
+        </Description>
         <Price>{`${propertyInfo.price}`}</Price>
         <PropertiesButton
           size="large"
           onClick={() => onInterestingProperty(propertyInfo.RKCode)}
         >
-          Tenho interesse
+          {t('properties.button')}
         </PropertiesButton>
       </DescriptionSection>
     </Container>

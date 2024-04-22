@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const CardContainer = styled.div`
   background-color: ${({ theme }) => theme.COLORS['zinc-500']};
@@ -23,6 +23,36 @@ export const CardContainer = styled.div`
     filter 0.3s ease,
     box-shadow 0.6s ease,
     border-bottom 1s ease-in-out;
+
+  ${({ $counter }) =>
+    $counter &&
+    css`
+      &::before {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: ${({ theme }) => theme.FONTS.Secondary};
+        position: absolute;
+        content: attr(data-count);
+        font-size: 1rem;
+        top: 11px;
+        left: 79.5px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px white;
+      }
+
+      @media (min-width: 650px) {
+        &::before {
+          font-size: 1.2rem;
+          width: 20px;
+          height: 20px;
+          left: 124px;
+          top: 17px;
+        }
+      }
+    `}
 
   &:hover {
     filter: brightness(1.2);
