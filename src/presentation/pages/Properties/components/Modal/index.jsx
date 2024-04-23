@@ -18,6 +18,7 @@ import {
   InputGroup,
   SuccessModal,
   SuccessText,
+  StyledPhoneInput,
 } from './styles'
 
 import closeIcon from '../../../../assets/x-close-icon.svg'
@@ -38,6 +39,7 @@ export function Modal({
 }) {
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(success)
+  const [phone, setPhone] = useState('')
 
   const { t } = useTranslation()
 
@@ -151,7 +153,7 @@ export function Modal({
                   Whatsapp: <span>({t('form.required-field')})</span>
                 </label>
 
-                <input
+                {/* <input
                   id="whatsapp"
                   name="whatsapp"
                   placeholder="+55 (00) 00000-0000"
@@ -160,6 +162,22 @@ export function Modal({
                   maxLength={20}
                   required
                   title=""
+                /> */}
+
+                <StyledPhoneInput
+                  placeholder="+55 (00) 00000-0000"
+                  containerClass="container"
+                  inputClass="input"
+                  country="br"
+                  value={phone}
+                  onChange={setPhone}
+                  inputProps={{
+                    name: 'whatsapp',
+                    id: 'whatsapp',
+                    required: true,
+                    autoFocus: true,
+                    minLength: 9,
+                  }}
                 />
               </div>
             </InputGroup>

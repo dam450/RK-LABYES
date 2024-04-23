@@ -1,9 +1,52 @@
 import styled, { keyframes } from 'styled-components'
 
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 const appear = keyframes`
   from {
     transform: translateY(-10vh);
     opacity: 0;
+  }
+`
+
+export const StyledPhoneInput = styled(PhoneInput)`
+  background-color: ${({ theme }) => theme.COLORS['zinc-50']};
+  border: 1px solid ${({ theme }) => theme.COLORS['blue-sky-600']};
+  color: ${({ theme }) => theme.COLORS['blue-sky-700']};
+
+  border-radius: 5px;
+
+  font-family: Roboto;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+
+  .input {
+    width: 100%;
+    border: none;
+    background: none;
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.COLORS['zinc-200']};
+  }
+
+  &:invalid {
+    .container {
+      border: 1px solid ${({ theme }) => theme.COLORS.tomate};
+      outline: 1px solid ${({ theme }) => theme.COLORS.tomate};
+    }
+  }
+
+  &:focus {
+    outline: 1px solid ${({ theme }) => theme.COLORS['blue-sky-500']};
+  }
+
+  &:disabled {
+    filter: contrast(0.75);
+    cursor: not-allowed;
   }
 `
 
@@ -128,7 +171,7 @@ export const Form = styled.form`
       background-color: ${({ theme }) => theme.COLORS['orange']};
       filter: brightness(1.1);
     }
-    
+
     @media screen and (min-width: 524px) {
       font-size: 2rem;
     }
