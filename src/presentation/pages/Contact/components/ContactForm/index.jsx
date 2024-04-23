@@ -106,8 +106,9 @@ export function ContactForm() {
                 placeholder="+55 (00) 00000-0000"
                 name="whatsapp"
                 id="whatsapp"
-                pattern="^[+]?(\d{9,17})"
-                minLength={10}
+                pattern="^[0-9\-\(\)+\s]+$"
+                minLength={9}
+                maxLength={20}
                 required
               />
             </div>

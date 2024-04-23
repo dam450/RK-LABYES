@@ -155,9 +155,9 @@ export function Modal({
                   id="whatsapp"
                   name="whatsapp"
                   placeholder="+55 (00) 00000-0000"
-                  pattern="^[0-9+ ]+$"
-                  minLength="9"
-                  maxLength="17"
+                  pattern="^[0-9\-\(\)+\s]+$"
+                  minLength={9}
+                  maxLength={20}
                   required
                   title=""
                 />
