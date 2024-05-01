@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 import { sendMail } from '../../../../../services/sendMail'
 import { toast } from 'react-toastify'
-import { PhoneNumberUtil } from 'google-libphonenumber'
 
 import { TextInput } from '../../../../components/TextInput'
 import { TextArea } from '../../../../components/TextArea'
@@ -12,21 +11,13 @@ import { Modal } from '../../../Properties/components/Modal'
 
 import { FormContainer, ShortButton } from './styles'
 import { PhoneInput } from '../../../../components/PhoneInput'
-
-const phoneUtil = PhoneNumberUtil.getInstance()
-function isValidPhoneNumber(phone) {
-  try {
-    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
-  } catch (error) {
-    return false
-  }
-}
+import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
 
 export function ContactForm() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [phone, setPhone] = useState('')
-  const isPhoneValid = isValidPhoneNumber(phone)
+  const { isPhoneValid } = usePhoneInputValidation(phone)
 
   const { t } = useTranslation()
 

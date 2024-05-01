@@ -4,10 +4,9 @@ import { toast } from 'react-toastify'
 import { sendMail } from '../../../../../services/sendMail'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 
-import { PhoneNumberUtil } from 'google-libphonenumber'
-
 import { useTranslation } from 'react-i18next'
 
+import { PhoneInput } from '../../../../components/PhoneInput'
 import { Button } from '../../../../components/Button'
 import {
   Container,
@@ -23,16 +22,7 @@ import {
 } from './styles'
 
 import closeIcon from '../../../../assets/x-close-icon.svg'
-import { PhoneInput } from '../../../../components/PhoneInput'
-
-const phoneUtil = PhoneNumberUtil.getInstance()
-function isValidPhoneNumber(phone) {
-  try {
-    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
-  } catch (error) {
-    return false
-  }
-}
+import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
 
 /**
  * Creates a styled Modal component.
@@ -51,7 +41,7 @@ export function Modal({
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(success)
   const [phone, setPhone] = useState('')
-  const isPhoneValid = isValidPhoneNumber(phone)
+  const { isPhoneValid } = usePhoneInputValidation(phone)
 
   const { t } = useTranslation()
 
