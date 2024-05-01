@@ -1,4 +1,4 @@
-# TextInput
+# PhoneInput
 
 O componente é um `input` para entrada de números, já com a estilização do projeto. Ele também pode receber as propriedades do input padrão. Também possui a estilização de quando o campo recebe valores inválidos ou não atende os requisitos.
 
