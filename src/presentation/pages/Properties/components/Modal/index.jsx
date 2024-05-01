@@ -5,7 +5,6 @@ import { sendMail } from '../../../../../services/sendMail'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 
 import { PhoneNumberUtil } from 'google-libphonenumber'
-import { countries } from '../../../../lib/reactInternationalPhone'
 
 import { useTranslation } from 'react-i18next'
 
@@ -21,10 +20,10 @@ import {
   InputGroup,
   SuccessModal,
   SuccessText,
-  StyledPhoneInput,
 } from './styles'
 
 import closeIcon from '../../../../assets/x-close-icon.svg'
+import { PhoneInput } from '../../../../components/PhoneInput'
 
 const phoneUtil = PhoneNumberUtil.getInstance()
 function isValidPhoneNumber(phone) {
@@ -175,15 +174,12 @@ export function Modal({
                   Whatsapp: <span>({t('form.required-field')})</span>
                 </label>
 
-                <StyledPhoneInput
+                <PhoneInput
                   value={phone}
                   onChange={setPhone}
                   $isValid={isPhoneValid}
-                  defaultCountry="br"
-                  countries={countries}
-                  placeholder="+55 (00) 00000-0000"
-                  inputClassName="phone-number-input"
                   inputProps={{
+                    placeholder: '+55 (00) 00000-0000',
                     name: 'whatsapp',
                     id: 'whatsapp',
                     required: true,

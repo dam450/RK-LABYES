@@ -4,14 +4,14 @@ import { useBrokerProfile } from '../../../../../data/BrokerData'
 import { sendMail } from '../../../../../services/sendMail'
 import { toast } from 'react-toastify'
 import { PhoneNumberUtil } from 'google-libphonenumber'
-import { countries } from '../../../../lib/reactInternationalPhone'
 
 import { TextInput } from '../../../../components/TextInput'
 import { TextArea } from '../../../../components/TextArea'
 import { SelectOption } from '../../../../components/SelectOption'
 import { Modal } from '../../../Properties/components/Modal'
 
-import { FormContainer, ShortButton, StyledPhoneInput } from './styles'
+import { FormContainer, ShortButton } from './styles'
+import { PhoneInput } from '../../../../components/PhoneInput'
 
 const phoneUtil = PhoneNumberUtil.getInstance()
 function isValidPhoneNumber(phone) {
@@ -121,24 +121,13 @@ export function ContactForm() {
               <label htmlFor="whatsapp">
                 Whatsapp <span> ({t('form.required-field')}):</span>
               </label>
-              {/* <TextInput
-                placeholder="+55 (00) 00000-0000"
-                name="whatsapp"
-                id="whatsapp"
-                pattern="^[0-9\-\(\)+\s]+$"
-                minLength={9}
-                maxLength={20}
-                required
-              /> */}
-              <StyledPhoneInput
+
+              <PhoneInput
                 value={phone}
                 onChange={setPhone}
                 $isValid={isPhoneValid}
-                defaultCountry="br"
-                countries={countries}
-                placeholder="+55 (00) 00000-0000"
-                inputClassName="phone-number-input"
                 inputProps={{
+                  placeholder: '+55 (00) 00000-0000',
                   name: 'whatsapp',
                   id: 'whatsapp',
                   required: true,
