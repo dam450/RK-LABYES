@@ -3,17 +3,30 @@ import { useTranslation } from 'react-i18next'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 import { sendMail } from '../../../../../services/sendMail'
 import { toast } from 'react-toastify'
+import { PhoneNumberUtil } from 'google-libphonenumber'
+import { countries } from '../../../../lib/reactInternationalPhone'
 
 import { TextInput } from '../../../../components/TextInput'
 import { TextArea } from '../../../../components/TextArea'
 import { SelectOption } from '../../../../components/SelectOption'
 import { Modal } from '../../../Properties/components/Modal'
 
-import { FormContainer, ShortButton } from './styles'
+import { FormContainer, ShortButton, StyledPhoneInput } from './styles'
+
+const phoneUtil = PhoneNumberUtil.getInstance()
+function isValidPhoneNumber(phone) {
+  try {
+    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
+  } catch (error) {
+    return false
+  }
+}
 
 export function ContactForm() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [phone, setPhone] = useState('')
+  const isPhoneValid = isValidPhoneNumber(phone)
 
   const { t } = useTranslation()
 
@@ -29,6 +42,12 @@ export function ContactForm() {
 
   function handleSubmit(event) {
     event.preventDefault()
+
+    if (!isPhoneValid) {
+      return toast.error('O telefone não é válido.', {
+        position: 'bottom-right',
+      })
+    }
 
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData)
@@ -102,7 +121,7 @@ export function ContactForm() {
               <label htmlFor="whatsapp">
                 Whatsapp <span> ({t('form.required-field')}):</span>
               </label>
-              <TextInput
+              {/* <TextInput
                 placeholder="+55 (00) 00000-0000"
                 name="whatsapp"
                 id="whatsapp"
@@ -110,6 +129,20 @@ export function ContactForm() {
                 minLength={9}
                 maxLength={20}
                 required
+              /> */}
+              <StyledPhoneInput
+                value={phone}
+                onChange={setPhone}
+                $isValid={isPhoneValid}
+                defaultCountry="br"
+                countries={countries}
+                placeholder="+55 (00) 00000-0000"
+                inputClassName="phone-number-input"
+                inputProps={{
+                  name: 'whatsapp',
+                  id: 'whatsapp',
+                  required: true,
+                }}
               />
             </div>
           </div>

@@ -4,6 +4,9 @@ import { toast } from 'react-toastify'
 import { sendMail } from '../../../../../services/sendMail'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 
+import { PhoneNumberUtil } from 'google-libphonenumber'
+import { countries } from '../../../../lib/reactInternationalPhone'
+
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '../../../../components/Button'
@@ -23,6 +26,15 @@ import {
 
 import closeIcon from '../../../../assets/x-close-icon.svg'
 
+const phoneUtil = PhoneNumberUtil.getInstance()
+function isValidPhoneNumber(phone) {
+  try {
+    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
+  } catch (error) {
+    return false
+  }
+}
+
 /**
  * Creates a styled Modal component.
  * @param {Boolean} isOpen - Modal is open.
@@ -40,6 +52,7 @@ export function Modal({
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(success)
   const [phone, setPhone] = useState('')
+  const isPhoneValid = isValidPhoneNumber(phone)
 
   const { t } = useTranslation()
 
@@ -60,6 +73,12 @@ export function Modal({
       if (event && event.target) {
         event.preventDefault()
 
+        if (!isPhoneValid) {
+          return toast.error('O telefone não é válido.', {
+            position: 'bottom-right',
+          })
+        }
+
         setIsLoading(true)
 
         const formData = new FormData(event.target)
@@ -71,6 +90,9 @@ export function Modal({
             Whatsapp: ${data?.whatsapp ?? '(Informação não preenchida)'}
             Código do Imóvel: ${propertyCode ?? '(Informação não preenchida)'}
             `
+
+        alert(messageText)
+        location.reload()
 
         sendMail(data.name, messageText, sendMailTo)
           .then(response => {
@@ -89,7 +111,7 @@ export function Modal({
           })
       }
     },
-    [handleCloseModal, propertyCode, sendMailTo],
+    [isPhoneValid, propertyCode, sendMailTo, handleCloseModal],
   )
 
   useEffect(() => {
@@ -153,30 +175,18 @@ export function Modal({
                   Whatsapp: <span>({t('form.required-field')})</span>
                 </label>
 
-                {/* <input
-                  id="whatsapp"
-                  name="whatsapp"
-                  placeholder="+55 (00) 00000-0000"
-                  pattern="^[0-9\-\(\)+\s]+$"
-                  minLength={9}
-                  maxLength={20}
-                  required
-                  title=""
-                /> */}
-
                 <StyledPhoneInput
-                  placeholder="+55 (00) 00000-0000"
-                  containerClass="container"
-                  inputClass="input"
-                  country="br"
                   value={phone}
                   onChange={setPhone}
+                  $isValid={isPhoneValid}
+                  defaultCountry="br"
+                  countries={countries}
+                  placeholder="+55 (00) 00000-0000"
+                  inputClassName="phone-number-input"
                   inputProps={{
                     name: 'whatsapp',
                     id: 'whatsapp',
                     required: true,
-                    autoFocus: true,
-                    minLength: 9,
                   }}
                 />
               </div>

@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import { PhoneInput } from 'react-international-phone'
+import 'react-international-phone/style.css'
 
 const appear = keyframes`
   from {
@@ -11,8 +11,9 @@ const appear = keyframes`
 `
 
 export const StyledPhoneInput = styled(PhoneInput)`
-  background-color: ${({ theme }) => theme.COLORS['zinc-50']};
-  border: 1px solid ${({ theme }) => theme.COLORS['blue-sky-600']};
+  border: 1px solid
+    ${({ theme, $isValid }) =>
+      $isValid ? theme.COLORS['blue-sky-600'] : theme.COLORS.tomate};
   color: ${({ theme }) => theme.COLORS['blue-sky-700']};
 
   border-radius: 5px;
@@ -23,21 +24,13 @@ export const StyledPhoneInput = styled(PhoneInput)`
   font-weight: 400;
   line-height: 100%;
 
-  .input {
+  .phone-number-input {
     width: 100%;
-    border: none;
-    background: none;
+    background-color: ${({ theme }) => theme.COLORS['zinc-50']};
   }
 
   &::placeholder {
     color: ${({ theme }) => theme.COLORS['zinc-200']};
-  }
-
-  &:invalid {
-    .container {
-      border: 1px solid ${({ theme }) => theme.COLORS.tomate};
-      outline: 1px solid ${({ theme }) => theme.COLORS.tomate};
-    }
   }
 
   &:focus {
@@ -148,8 +141,7 @@ export const Form = styled.form`
     outline: none;
 
     &#name:invalid:focus,
-    &#email:invalid:focus,
-    &#whatsapp:invalid:focus {
+    &#email:invalid:focus {
       outline: none;
       border: 1px solid ${({ theme }) => theme.COLORS.tomate};
     }
