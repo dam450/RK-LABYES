@@ -80,9 +80,6 @@ export function Modal({
             Código do Imóvel: ${propertyCode ?? '(Informação não preenchida)'}
             `
 
-        alert(messageText)
-        location.reload()
-
         sendMail(data.name, messageText, sendMailTo)
           .then(response => {
             if (response.status === 200) {
