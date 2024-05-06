@@ -11,7 +11,7 @@ export const StyledPhoneInput = styled(PhoneInput)`
 
   border-radius: 5px;
 
-  font-family: Roboto;
+  font-family: ${({ theme }) => theme.FONTS.Primary};
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
