@@ -9,6 +9,7 @@ import { countries } from '../../lib/reactInternationalPhone'
  * @param {string} value - Value of the input field.
  * @param {() => void} setValue - Function to set the input field value.
  * @param {object} inputProps - Object that contains some of the native input props.
+ * @param {boolean} isPhoneValid - Determines if the phone is valid.
  * @return {JSX.Element} The styled PhoneInput component.
  */
 export function PhoneInput({
@@ -22,7 +23,7 @@ export function PhoneInput({
     <StyledPhoneInput
       value={value}
       onChange={setValue}
-      $isValid={isPhoneValid}
+      isValid={isPhoneValid}
       defaultCountry="br"
       countries={countries}
       inputClassName="phone-number-input"
