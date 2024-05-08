@@ -14,17 +14,13 @@
   "modal.success-text": "Em breve, um de nossos especialistas entrar em contato para fornecer todas as informações necessárias. Estamos ansiosos para ajudar você a encontrar o lar dos seus sonhos!",
   "modal.alt.close": "Ícone de X para fechar o modal",
   "modal.alt.gif": "Gif de Verificação",
-
   "form.required-field": "Campo obrigatório",
-
   "home": {
     "home-title": "Oportunidades únicas não esperam por ninguém!"
   },
-
   "footer": {
     "footer-span": "Todos os direitos reservados."
   },
-  "form.required-field": "Campo obrigatório",
   "contact.form-title": "Dados pessoais",
   "contact.form-field-name": "Nome",
   "contact.form-field-name-placeholder": "Digite seu nome",
