@@ -57,5 +57,12 @@
   "privatePolicy.caption-two": "2. Recopilación y uso de datos personales",
   "privatePolicy.text-one": "Los datos personales son información que permite la identificación, como nombre, correo electrónico, teléfono o dirección.",
   "privatePolicy.text-two": "RK Imóveis no recopila datos personales, excepto cuando se indique específicamente (por ejemplo, al registrarse para recibir boletines, solicitar un presupuesto o solicitar contacto comercial) y a menos que usted dé su consentimiento para su uso.",
-  "privatePolicy.text-three": "Almacenamos, utilizamos o transferimos sus datos personales sólo con su consentimiento y en situaciones específicas, como para responder a sus preguntas, solicitudes de información o informarle sobre novedades."
+  "privatePolicy.text-three": "Almacenamos, utilizamos o transferimos sus datos personales sólo con su consentimiento y en situaciones específicas, como para responder a sus preguntas, solicitudes de información o informarle sobre novedades.",
+  "properties": {
+    "title": "¡Encuentra la propiedad perfecta para ti y tu familia!"
+  },
+  "contact": {
+    "title": "¡Aprovecha ahora y encuentra la casa de tus sueños!",
+    "subtitle": "El primer paso es rellenar este formulario."
+  }
 }

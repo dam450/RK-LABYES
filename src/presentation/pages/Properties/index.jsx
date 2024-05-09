@@ -8,12 +8,14 @@ import { Modal } from './components/Modal'
 
 import { useBrokerProfile } from '../../../data/BrokerData'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export function Properties() {
   const properties = useProperties()
   const { phone } = useBrokerProfile()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [PropertyCodeInfo, setPropertyCodeInfo] = useState('')
+  const { t } = useTranslation()
 
   function handleGetPropertyCodeInfo(code) {
     setIsModalOpen(true)
@@ -23,7 +25,7 @@ export function Properties() {
   return (
     <Container>
       <Content>
-        <h1>Encontre o imóvel perfeito para você e sua família!</h1>
+        <h1>{t('properties.title')}</h1>
         <Carousel option="cardProperty" length={properties.length}>
           {properties.map(property => (
             <SplideSlide key={property.id}>

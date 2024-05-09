@@ -4,6 +4,7 @@ import { ContactBlock } from '../../components/ContactBlock'
 import { ContactForm } from './components/ContactForm'
 
 import { useBrokerProfile } from '../../../data/BrokerData'
+import { useTranslation } from 'react-i18next'
 
 export function Contact() {
   const broker = useBrokerProfile()
@@ -11,11 +12,13 @@ export function Contact() {
   const brokerEmail = broker.email
   const brokerPhoneNumber = broker.phone
 
+  const { t } = useTranslation()
+
   return (
     <Container>
       <div className="titles">
-        <h1>Aproveite agora e encontre seu lar dos sonhos!</h1>
-        <p>O primeiro passo é preencher esse formulário</p>
+        <h1>{t('contact.title')}</h1>
+        <p>{t('contact.subtitle')}</p>
       </div>
       <div className="form">
         <ContactForm />
