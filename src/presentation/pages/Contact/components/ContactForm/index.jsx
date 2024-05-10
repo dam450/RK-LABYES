@@ -9,7 +9,7 @@ import { TextArea } from '../../../../components/TextArea'
 import { SelectOption } from '../../../../components/SelectOption'
 import { Modal } from '../../../Properties/components/Modal'
 
-import { FormContainer, ShortButton } from './styles'
+import { FormContainer, ShortButton, ErrorText } from './styles'
 import { PhoneInput } from '../../../../components/PhoneInput'
 import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
 
@@ -124,6 +124,8 @@ export function ContactForm() {
                   required: true,
                 }}
               />
+
+              {!isPhoneValid && <ErrorText>O formato é inválido.</ErrorText>}
             </div>
           </div>
         </fieldset>

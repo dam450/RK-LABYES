@@ -19,6 +19,7 @@ import {
   InputGroup,
   SuccessModal,
   SuccessText,
+  ErrorText,
 } from './styles'
 
 import closeIcon from '../../../../assets/x-close-icon.svg'
@@ -172,6 +173,8 @@ export function Modal({
                     required: true,
                   }}
                 />
+
+                {!isPhoneValid && <ErrorText>O formato é inválido.</ErrorText>}
               </div>
             </InputGroup>
 

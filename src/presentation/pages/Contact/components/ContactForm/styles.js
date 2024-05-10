@@ -128,3 +128,8 @@ export const ShortButton = styled(Button)`
   max-width: 22rem;
   max-height: 3.2rem;
 `
+
+export const ErrorText = styled.span`
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.COLORS.tomate};
+`

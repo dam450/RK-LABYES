@@ -79,6 +79,7 @@ export const Description = styled.p`
     font-size: 1.6rem;
   }
 `
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -200,4 +201,11 @@ export const SuccessText = styled.p`
   color: ${({ theme }) => theme.COLORS['zinc-400']};
   font-size: 2rem;
   text-align: center;
+`
+
+export const ErrorText = styled.span`
+  margin-top: 0.4rem;
+
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.COLORS.tomate};
 `
