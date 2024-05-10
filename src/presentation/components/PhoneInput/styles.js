@@ -14,7 +14,6 @@ export const StyledPhoneInput = styled(PhoneInput)`
   .phone-number-input {
     width: 100%;
     background-color: ${({ theme }) => theme.COLORS['zinc-50']};
-    font-family: ${({ theme }) => theme.FONTS.Primary};
     line-height: 100%;
     font-size: 1.4rem;
   }
