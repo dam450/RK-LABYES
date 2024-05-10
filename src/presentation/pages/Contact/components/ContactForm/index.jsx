@@ -34,11 +34,7 @@ export function ContactForm() {
   function handleSubmit(event) {
     event.preventDefault()
 
-    if (!isPhoneValid) {
-      return toast.error('O telefone não é válido.', {
-        position: 'bottom-right',
-      })
-    }
+    if (!isPhoneValid) return
 
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData)

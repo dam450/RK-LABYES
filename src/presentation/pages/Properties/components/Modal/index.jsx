@@ -63,11 +63,7 @@ export function Modal({
       if (event && event.target) {
         event.preventDefault()
 
-        if (!isPhoneValid) {
-          return toast.error('O telefone não é válido.', {
-            position: 'bottom-right',
-          })
-        }
+        if (!isPhoneValid) return
 
         setIsLoading(true)
 
