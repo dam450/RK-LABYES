@@ -111,8 +111,8 @@ export function ContactForm() {
 
               <PhoneInput
                 value={phone}
-                onChange={setPhone}
-                $isValid={isPhoneValid}
+                setValue={setPhone}
+                isPhoneValid={isPhoneValid}
                 inputProps={{
                   placeholder: '+55 (00) 00000-0000',
                   name: 'whatsapp',
