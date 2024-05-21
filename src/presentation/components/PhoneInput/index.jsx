@@ -1,6 +1,8 @@
 import { StyledPhoneInput } from './styles'
+import { getActiveFormattingMask } from 'react-international-phone'
 
 import { countries } from '../../lib/reactInternationalPhone'
+import { useState } from 'react'
 
 /**
  * Creates a styled PhoneInput component.
@@ -19,16 +21,33 @@ export function PhoneInput({
   inputProps,
   ...rest
 }) {
+  const [mask, setMask] = useState('')
   return (
-    <StyledPhoneInput
-      value={value}
-      onChange={setValue}
-      isValid={isPhoneValid}
-      defaultCountry="br"
-      countries={countries}
-      inputClassName="phone-number-input"
-      inputProps={inputProps}
-      {...rest}
-    />
+    <>
+      <div className="placeholder" data-placeholder="my placeholder">
+        <StyledPhoneInput
+          value={value}
+          onChange={(phone, { country }) => {
+            const mask = getActiveFormattingMask({
+              phone,
+              country,
+              prefix: '+',
+            })
+            setMask(mask.replace(/\./g, '0'))
+            setValue(value)
+          }}
+          isValid={isPhoneValid}
+          defaultCountry="br"
+          countries={countries}
+          inputClassName="phone-number-input"
+          inputProps={inputProps}
+          placeholder={mask}
+          title="phone"
+          {...rest}
+        />
+      </div>
+
+      <label htmlFor="phone">{mask}</label>
+    </>
   )
 }

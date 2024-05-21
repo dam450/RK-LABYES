@@ -44,6 +44,8 @@ export function Modal({
   const [phone, setPhone] = useState('')
   const { isPhoneValid } = usePhoneInputValidation(phone)
 
+  const [hasUserStartedTyping, setHasUserStartedTyping] = useState(false)
+
   const { t } = useTranslation()
 
   const { email } = useBrokerProfile()
@@ -102,6 +104,8 @@ export function Modal({
       if (event.key === 'Escape' && isOpen) handleCloseModal()
 
       if (event.key === 'Enter' && isOpen) handleSubmit()
+
+      if (event.key.match(/[a-zA-Z0-9]/)) setHasUserStartedTyping(true)
     })
 
     return () => {
@@ -111,7 +115,7 @@ export function Modal({
         if (event.key === 'Enter' && isOpen) handleSubmit()
       })
     }
-  }, [handleSubmit, isOpen, handleCloseModal])
+  }, [handleSubmit, isOpen, handleCloseModal, hasUserStartedTyping])
 
   return isOpen ? (
     <Container>
@@ -161,16 +165,19 @@ export function Modal({
                 <PhoneInput
                   value={phone}
                   setValue={setPhone}
-                  isPhoneValid={isPhoneValid}
+                  isPhoneValid={isPhoneValid || !hasUserStartedTyping}
                   inputProps={{
-                    placeholder: '+55 (00) 00000-0000',
+                    // placeholder: '+55 (00) 00000-0000',
                     name: 'whatsapp',
                     id: 'whatsapp',
                     required: true,
                   }}
                 />
 
-                {!isPhoneValid && <ErrorText>O formato é inválido.</ErrorText>}
+                {!isPhoneValid ||
+                  (!hasUserStartedTyping && (
+                    <ErrorText>O formato é inválido.</ErrorText>
+                  ))}
               </div>
             </InputGroup>
 
