@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 import closeIcon from '../../../../assets/x-close-icon.svg'
-import successGif from '../../../../assets/success.gif'
+import verifiedGif from '../../../../assets/verified.gif'
 import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
 
 /**
@@ -197,7 +197,7 @@ export function Modal({
 
           <SuccessBody>
             <img
-              src={successGif}
+              src={verifiedGif}
               alt={t('modal.alt.gif')}
               className="verifiedGif"
             />
