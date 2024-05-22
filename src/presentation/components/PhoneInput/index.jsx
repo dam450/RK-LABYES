@@ -23,31 +23,25 @@ export function PhoneInput({
 }) {
   const [mask, setMask] = useState('')
   return (
-    <>
-      <div className="placeholder" data-placeholder="my placeholder">
-        <StyledPhoneInput
-          value={value}
-          onChange={(phone, { country }) => {
-            const mask = getActiveFormattingMask({
-              phone,
-              country,
-              prefix: '+',
-            })
-            setMask(mask.replace(/\./g, '0'))
-            setValue(value)
-          }}
-          isValid={isPhoneValid}
-          defaultCountry="br"
-          countries={countries}
-          inputClassName="phone-number-input"
-          inputProps={inputProps}
-          placeholder={mask}
-          title="phone"
-          {...rest}
-        />
-      </div>
-
-      <label htmlFor="phone">{mask}</label>
-    </>
+    <StyledPhoneInput
+      value={value}
+      onChange={(phone, { country }) => {
+        const mask = getActiveFormattingMask({
+          phone,
+          country,
+          prefix: '+',
+        })
+        setMask(mask.replace(/\./g, '0'))
+        setValue(phone)
+      }}
+      isValid={isPhoneValid}
+      defaultCountry="br"
+      countries={countries}
+      inputClassName="phone-number-input"
+      inputProps={inputProps}
+      placeholder={mask}
+      title="phone"
+      {...rest}
+    />
   )
 }

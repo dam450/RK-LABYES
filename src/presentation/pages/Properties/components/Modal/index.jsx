@@ -167,17 +167,15 @@ export function Modal({
                   setValue={setPhone}
                   isPhoneValid={isPhoneValid || !hasUserStartedTyping}
                   inputProps={{
-                    // placeholder: '+55 (00) 00000-0000',
                     name: 'whatsapp',
                     id: 'whatsapp',
                     required: true,
                   }}
                 />
 
-                {!isPhoneValid ||
-                  (!hasUserStartedTyping && (
-                    <ErrorText>O formato é inválido.</ErrorText>
-                  ))}
+                {!isPhoneValid && hasUserStartedTyping && (
+                  <ErrorText>O formato é inválido.</ErrorText>
+                )}
               </div>
             </InputGroup>
 
