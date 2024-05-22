@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 import { sendMail } from '../../../../../services/sendMail'
@@ -16,6 +16,7 @@ import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
 export function ContactForm() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [hasUserStartedTyping, setHasUserStartedTyping] = useState(false)
   const [phone, setPhone] = useState('')
   const { isPhoneValid } = usePhoneInputValidation(phone)
 
@@ -70,6 +71,12 @@ export function ContactForm() {
       })
   }
 
+  useEffect(() => {
+    window.addEventListener('keyup', event => {
+      if (event.key.match(/[a-zA-Z0-9]/)) setHasUserStartedTyping(true)
+    })
+  }, [hasUserStartedTyping])
+
   return (
     <FormContainer onSubmit={handleSubmit}>
       <div className="fieldsContainer">
@@ -112,16 +119,17 @@ export function ContactForm() {
               <PhoneInput
                 value={phone}
                 setValue={setPhone}
-                isPhoneValid={isPhoneValid}
+                isPhoneValid={isPhoneValid || !hasUserStartedTyping}
                 inputProps={{
-                  placeholder: '+55 (00) 00000-0000',
                   name: 'whatsapp',
                   id: 'whatsapp',
                   required: true,
                 }}
               />
 
-              {!isPhoneValid && <ErrorText>O formato é inválido.</ErrorText>}
+              {!isPhoneValid && hasUserStartedTyping && (
+                <ErrorText>O formato é inválido.</ErrorText>
+              )}
             </div>
           </div>
         </fieldset>
