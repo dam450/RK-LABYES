@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 /**
  * The property info
  * @typedef {Object} Property
@@ -18,7 +20,8 @@
 
 const BROKER_ID = crypto.randomUUID()
 
-const properties = [
+/**  @type {Array<Property>} The Portuguese properties data */
+const propertiesPT = [
   {
     id: crypto.randomUUID(),
     brokerId: BROKER_ID,
@@ -113,10 +116,36 @@ const properties = [
   },
 ]
 
+/**  @type {Array<Property>} The Portuguese properties data */
+const propertiesES = [
+  // TODO: Add Spanish properties text
+]
+
+/**
+ * The Properties data
+ * @typedef {Object} PropertiesData
+ * @property {Array<Property>} pt - The Portuguese property data.
+ * @property {Array<Property>} es - The Spanish property data.
+ */
+
+/** @type {PropertiesData} The properties data */
+const properties = {
+  pt: propertiesPT,
+  // es: propertiesES,
+}
+
 /**
  * Retrieves the properties info.
  * @return {Array<Property>} returns an array of properties info.
  */
 export function useProperties() {
-  return properties
+  const {
+    i18n: { language },
+  } = useTranslation()
+
+  if (properties[language]) {
+    return properties[language]
+  } else {
+    return properties['pt']
+  }
 }
