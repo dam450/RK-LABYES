@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 /**
  * The Address info
  * @typedef {Object} Address
@@ -51,9 +53,19 @@
  * @property {ClientReview} [clientReview] - indicates the review of the client.  <optional>
  * @property {Array<BrokerComments>} comments - indicates the comments to the broker.
  * @property {Array<BrokerTips>} tips - indicates the tips of the broker.
- *
  */
-const brokerProfile = {
+
+/**
+ * The broker data
+ * @typedef {Object} BrokerData
+ * @property {BrokerProfile} pt - The Portuguese broker profile.
+ * @property {BrokerProfile} es - The Spanish broker profile.
+ */
+
+/**
+ * @type {BrokerProfile} The broker profile for PT language
+ */
+const brokerProfilePT = {
   id: crypto.randomUUID(),
   name: 'Winnetou Soares Martins',
   CRECI: '64.763-F',
@@ -156,9 +168,32 @@ const brokerProfile = {
 }
 
 /**
+ * @type {BrokerProfile} The broker profile for ES language
+ */
+const brokerProfileES = {
+  // Add broker profile ES text here
+}
+
+/**
+ * @type {BrokerData} The broker data
+ */
+const brokerData = {
+  pt: brokerProfilePT,
+  es: brokerProfileES,
+}
+
+/**
  * Retrieves the broker profile.
  * @return {BrokerProfile} returns the broker profile info.
  */
 export function useBrokerProfile() {
-  return brokerProfile
+  const {
+    i18n: { language },
+  } = useTranslation()
+
+  if (brokerData[language].id) {
+    return brokerData[language]
+  } else {
+    return brokerData['pt']
+  }
 }
