@@ -59,7 +59,8 @@
   "privatePolicy.text-two": "A RK Imóveis não coleta dados pessoais, exceto quando especificamente fornecidos (p. ex., no cadastro para recebimento de newsletters, solicitação de orçamento ou solicitações de contato comercial) e salvo consentimento para a sua utilização.",
   "privatePolicy.text-three": "Armazenamos, usamos ou transferimos seus dados pessoais apenas com seu consentimento e em situações específicas como, por exemplo, para responder às suas perguntas, pedidos de informações ou para informá-lo sobre novidades.",
   "properties": {
-    "title": "Encontre o imóvel perfeito para você e sua família!"
+    "title": "Encontre o imóvel perfeito para você e sua família!",
+    "disclaimer": "Informações sujeitas a alterações sem aviso prévio."
   },
   "contact": {
     "title": "Aproveite agora e encontre seu lar dos sonhos!",
