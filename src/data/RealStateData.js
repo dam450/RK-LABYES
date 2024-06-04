@@ -118,7 +118,98 @@ const propertiesPT = [
 
 /**  @type {Array<Property>} The Portuguese properties data */
 const propertiesES = [
-  // TODO: Add Spanish properties text
+  {
+    id: crypto.randomUUID(),
+    brokerId: BROKER_ID,
+    RKCode: '9747',
+    title: 'Copacabana Beach',
+    region: 'Ingleses',
+    description:
+      'Encantadora unidad con 03 habitaciones, 01 suite, con 02 estacionamientos y un hobby box para almacenamiento.adicional. Totalmente amueblado y decorado con mucho gusto y sofisticación. Ubicado en la zona privilegiada de Playa Ingleses, la ubicación es bastante tranquilo y cerca de comercios locales. La propiedad tiene una posición solar privilegiada, oeste permitiendo una Gran iluminación y ventilación natural en todos los ambientes. El condominio ofrece una completa zona de ocio, brindando entretenimiento para usted y su familia.\n\n **Propiedad en proceso de **\n\n **Individualización de la Inscripción**',
+    price: 'R$ 1.300.000,00',
+    details: {
+      square: '98,72 m²',
+      rooms: '3',
+      bathrooms: '3',
+      garage: '2',
+    },
+    pictures: [
+      '/properties/copacabana-f01.jpg',
+      '/properties/copacabana-f02.jpg',
+      '/properties/copacabana-f03.jpg',
+      '/properties/copacabana-f04.jpg',
+      '/properties/copacabana-f05.jpg',
+    ],
+  },
+  {
+    id: crypto.randomUUID(),
+    brokerId: BROKER_ID,
+    RKCode: '9705',
+    title: 'Vila Inglesa',
+    region: 'Ingleses',
+    description:
+      'Encantadora unidad con 03 habitaciones, 01 de las cuales es suite. Además, ofrece comodidad con 01 plaza de aparcamiento y una caja de pasatiempos para almacenamiento adicional. Totalmente amueblado y decorado con mucho gusto y sofisticación. Ubicado en la zona privilegiada de Praia dos Ingleses, la ubicación es bastante tranquilo y cercano al comercio local, proporcionando así un entorno agradable. El condominio, a su vez, ofrece una completa zona de ocio, brindando opciones de entretenimiento y relajación para usted y su familia.\n\n**Propiedad en proceso de**\n\n**Individualización de la Inscripción**',
+    price: 'R$ 1.980.000,00',
+    details: {
+      square: '119 m²',
+      rooms: '3',
+      bathrooms: '3',
+      garage: '1',
+    },
+    pictures: [
+      '/properties/vilainglesa-f01.jpg',
+      '/properties/vilainglesa-f02.jpg',
+      '/properties/vilainglesa-f03.jpg',
+      '/properties/vilainglesa-f04.jpg',
+      '/properties/vilainglesa-f05.jpg',
+    ],
+  },
+  {
+    id: crypto.randomUUID(),
+    brokerId: BROKER_ID,
+    RKCode: '9886',
+    title: 'Estrela Verde',
+    region: 'Ingleses',
+    description:
+      '**PROPIEDAD CON REGISTRO** \n\nEncantadora unidad con 2 dormitorios, 1 suite. Además, ofrece comodidad con 01 plaza de aparcamiento y una caja de pasatiempos para almacenamiento adicional. Propiedad amueblada con mucho gusto. Ubicado en la zona privilegiada de Praia dos Ingleses, la ubicación es bastante tranquilo y cercano al comercio local, proporcionando así un entorno agradable. El condominio, a su vez, ofrece una completa zona de ocio, brindando opciones de entretenimiento y relajación para usted y su familia.',
+    price: 'R$ 790.000,00',
+    details: {
+      square: '77,45 m²',
+      rooms: '2',
+      bathrooms: '2',
+      garage: '1',
+    },
+    pictures: [
+      '/properties/estrela-verde-f01.jpg',
+      '/properties/estrela-verde-f02.jpg',
+      '/properties/estrela-verde-f03.jpg',
+      '/properties/estrela-verde-f04.jpg',
+      '/properties/estrela-verde-f05.jpg',
+    ],
+  },
+  {
+    id: crypto.randomUUID(),
+    brokerId: BROKER_ID,
+    RKCode: '9616',
+    title: 'Hercílio Luz',
+    region: 'Ingleses',
+    description:
+      '**PROPIEDAD CON REGISTRO**\n\nEncantador Dúplex de 3 dormitorios, 1 suite. Además, ofrece comodidad con 01 plaza de aparcamiento y una caja de pasatiempos para almacenamiento adicional. Propiedad con posición Solar Frente Norte, ubicada a 500 metros de la playa. de los ingleses. Ubicado en la zona privilegiada de Praia dos Ingleses, la ubicación es bastante tranquilo y cercano al comercio local, proporcionando así un entorno agradable. El condominio, a su vez, ofrece una completa zona de ocio, brindando opciones de entretenimiento y relajación para usted y su familia.',
+    price: 'R$ 845.000,00',
+    details: {
+      square: '96,21 m²',
+      rooms: '3',
+      bathrooms: '2',
+      garage: '1',
+    },
+    pictures: [
+      './properties/hercilio-luz-f01.jpg',
+      './properties/hercilio-luz-f02.jpg',
+      './properties/hercilio-luz-f03.jpg',
+      './properties/hercilio-luz-f04.jpg',
+      './properties/hercilio-luz-f05.jpg',
+    ],
+  },
 ]
 
 /**
@@ -131,7 +222,7 @@ const propertiesES = [
 /** @type {PropertiesData} The properties data */
 const properties = {
   pt: propertiesPT,
-  // es: propertiesES,
+  es: propertiesES,
 }
 
 /**
