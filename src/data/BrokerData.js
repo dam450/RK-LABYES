@@ -88,6 +88,7 @@ const brokerProfilePT = {
   },
   phone: '(48) 98826-2951 ',
   email: 'winnetou@rkimoveis.com.br',
+  instagram: 'thalytarangel',
   clientReview: {
     review:
       'Eu e meu marido adquirimos um imóvel através do corretor Winnetou Martins e fomos muito bem tratados do início até a conclusão da compra. Ele é hábil, competente e atencioso.',
@@ -193,6 +194,7 @@ const brokerProfileES = {
   },
   phone: '(48) 98826-2951 ',
   email: 'winnetou@rkimoveis.com.br',
+  instagram: 'thalytarangel',
   clientReview: {
     review:
       'Yo y mi marido compramos una propiedad a través del corredor Winnetou Martins y nos trataron de maravilla desde el principio hasta el final de la compra. Es hábil, competente y atento.',
