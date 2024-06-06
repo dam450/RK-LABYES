@@ -11,6 +11,7 @@ export function Contact() {
   const brokerAddress = broker.address
   const brokerEmail = broker.email
   const brokerPhoneNumber = broker.phone
+  const brokerInstagram = broker.instagram
 
   const { t } = useTranslation()
 
@@ -28,6 +29,7 @@ export function Contact() {
           address={`${brokerAddress.street}, ${brokerAddress.number} ${brokerAddress.district} - ${brokerAddress.city}-${brokerAddress.state}`}
           email={brokerEmail}
           phoneNumber={brokerPhoneNumber}
+          instagram={brokerInstagram}
         />
         <div className="image">
           <BrokerImage removeelipses={true} />

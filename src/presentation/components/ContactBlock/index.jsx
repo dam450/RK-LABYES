@@ -3,8 +3,9 @@ import { Container } from './styles'
 import mapIcon from '../../assets/contactMap.png'
 import emailIcon from '../../assets/envelopeEmail.png'
 import whatsappIcon from '../../assets/contactWhatsappIcon.svg'
+import instagramIcon from '../../assets/instagram-icon.svg'
 
-export function ContactBlock({ address, email, phoneNumber }) {
+export function ContactBlock({ address, email, phoneNumber, instagram }) {
   const phoneDigits = phoneNumber.replace(/\D/g, '')
   return (
     <Container>
@@ -36,6 +37,24 @@ export function ContactBlock({ address, email, phoneNumber }) {
                 rel="noopener noreferrer"
               >
                 {email}
+              </a>
+            </p>
+          </li>
+        )}
+
+        {instagram && (
+          <li>
+            <img
+              src={instagramIcon}
+              alt="Icone do aplicativo instagram desenhado."
+            />
+            <p>
+              <a
+                href={`https://www.instagram.com/${instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {`@${instagram}`}
               </a>
             </p>
           </li>

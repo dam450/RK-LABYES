@@ -12,7 +12,7 @@ import {
 import emailIcon from '../../../../assets/email-icon.svg'
 import whatsappIcon from '../../../../assets/whatsapp-icon.svg'
 import mapPinIcon from '../../../../assets/map-pin-icon.svg'
-
+import instagramIcon from '../../../../assets/instagram-icon.svg'
 /**
  * Renders the description of a real estate broker.
  * @param {Object<string, import('../../../../../data/BrokerData').BrokerProfile>} brokerData - the information of the broker
@@ -62,21 +62,31 @@ export function RealEstateBrokerDescription({ brokerData }) {
           </a>
 
           <a
-            href={`https://api.whatsapp.com/send?phone=${phoneDigits}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <img src={whatsappIcon} alt="Ícone do WhatsApp" />
-            <span>{brokerData.phone}</span>
-          </a>
-
-          <a
             href={'mailto:' + brokerData.email}
             rel="noreferrer"
             target="_blank"
           >
             <img src={emailIcon} alt="Ícone do Gmail" />
             <span>{brokerData.email}</span>
+          </a>
+          {brokerData.instagram && (
+            <a
+              href={`https://www.instagram.com/${brokerData.instagram}`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img src={instagramIcon} alt="Ícone do Instagram" />
+              <span>{`@${brokerData.instagram}`}</span>
+            </a>
+          )}
+
+          <a
+            href={`https://api.whatsapp.com/send?phone=${phoneDigits}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <img src={whatsappIcon} alt="Ícone do WhatsApp" />
+            <span>{brokerData.phone}</span>
           </a>
         </LinksCard>
 

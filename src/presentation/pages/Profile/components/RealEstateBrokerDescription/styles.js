@@ -240,25 +240,25 @@ export const CommentCard = styled.div`
   p {
     font-family: 'Nunito', sans-serif;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     font-style: italic;
     font-weight: 300;
-    line-height: 130%;
+    line-height: 120%;
   }
 
   h3 {
     color: #758df4;
     font-family: Roboto;
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: 30px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 2.3rem 1.6rem 1rem;
+    padding: 1rem 1.6rem 1rem;
     color: ${({ theme }) => theme.COLORS.white};
-    max-width: 27rem;
+    max-width: 28rem;
     width: 100%;
   }
 `

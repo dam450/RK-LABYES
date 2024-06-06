@@ -55,7 +55,7 @@ export const Container = styled.aside`
       }
     }
 
-    :nth-child(3) {
+    :nth-child(4) {
       font-size: 2.4rem;
       column-gap: 0.8rem;
 
@@ -68,7 +68,7 @@ export const Container = styled.aside`
     @media (max-width: 768px) {
       font-size: 1.6rem;
 
-      :nth-child(3) {
+      :nth-child(4) {
         font-size: 2rem;
         column-gap: 1.1rem;
 
