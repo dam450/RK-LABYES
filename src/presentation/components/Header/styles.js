@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 export const Container = styled.div`
@@ -31,14 +31,29 @@ export const Container = styled.div`
     left: 0;
     right: 0;
 
-    z-index: ${({ $opened }) => ($opened ? 4 : -1)};
-
-    background-color: ${({ $opened }) =>
-      $opened ? 'rgb(0 25 50 / 5%)' : 'transparent'};
     backdrop-filter: blur(3px);
-    opacity: ${({ $opened }) => ($opened ? 0.7 : 0)};
+
+    ${({ $opened }) =>
+      $opened
+        ? css`
+            z-index: 4;
+            background-color: 'rgb(0 25 50 / 5%)';
+            opacity: 0.7;
+          `
+        : css`
+            z-index: -1;
+            background-color: 'transparent';
+            opacity: 0;
+          `}
 
     transition: all 0.5s ease;
+  }
+
+  > .menu-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+    flex-direction: row-reverse;
   }
 
   @media (min-width: 1024px) {
@@ -47,20 +62,9 @@ export const Container = styled.div`
       background-color: transparent;
       backdrop-filter: blur(0);
     }
-  }
 
-  > .logo-lang-wrapper {
-    width: 65%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 0.5rem;
-
-    gap: 1rem;
-
-    @media screen and (max-width: 425px) {
-      width: fit-content;
+    > .menu-wrapper {
+      flex-direction: row;
     }
   }
 `
@@ -89,7 +93,7 @@ export const Links = styled.ul`
 
   width: 25rem;
 
-  overflow: hidden;
+  /* overflow: hidden; */
 
   width: ${({ $opened }) => ($opened ? '25rem' : 0)};
 

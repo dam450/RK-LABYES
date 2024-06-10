@@ -24,35 +24,35 @@ const routes = [
 export function Header({ paths = routes }) {
   const [openMenuHambuger, setOpenMenuHambuger] = useState(false)
   const { t } = useTranslation()
+
   function handleOpenMenuHambuger() {
     return setOpenMenuHambuger(!openMenuHambuger)
   }
 
   return (
     <Container $opened={openMenuHambuger}>
-      <div className="logo-lang-wrapper">
-        <Logo to={paths[0].route}>
-          <img src={logoRKI} alt="Logo da RK Imóveis" />
-        </Logo>
+      <Logo to={paths[0].route}>
+        <img src={logoRKI} alt="Logo da RK Imóveis" />
+      </Logo>
+
+      <div className="menu-wrapper">
+        <Hamburger
+          opened={openMenuHambuger}
+          onChange={handleOpenMenuHambuger}
+        />
+
+        <Links $opened={openMenuHambuger}>
+          {paths.slice(1).map(path => (
+            <LinkWrapper key={path.key} onClick={handleOpenMenuHambuger}>
+              <NavLink to={path.route}>
+                <span>{t(path.key)}</span>
+              </NavLink>
+            </LinkWrapper>
+          ))}
+        </Links>
 
         <LangButton />
       </div>
-
-      <Hamburger
-        $opened={openMenuHambuger}
-        checked={openMenuHambuger}
-        onChange={handleOpenMenuHambuger}
-      />
-
-      <Links $opened={openMenuHambuger}>
-        {paths.slice(1).map(path => (
-          <LinkWrapper key={path.key} onClick={handleOpenMenuHambuger}>
-            <NavLink to={path.route}>
-              <span>{t(path.key)}</span>
-            </NavLink>
-          </LinkWrapper>
-        ))}
-      </Links>
     </Container>
   )
 }
