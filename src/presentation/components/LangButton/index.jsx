@@ -17,10 +17,12 @@ export function LangButton() {
   const availableLanguages = {
     es: {
       nativeName: 'Español',
+      abbr: 'es',
       flag: ArgentinaFlag,
     },
     pt: {
       nativeName: 'Português',
+      abbr: 'br',
       flag: BrasilFlag,
     },
   }
@@ -44,20 +46,20 @@ export function LangButton() {
   }
 
   return (
-    <LangButtonContainer $isOpen={isMenuOpen}>
+    <LangButtonContainer $isOpen={isMenuOpen} id="lang-button">
       <button onClick={toggleSelector} type="button">
-        <span>{selectedLang.nativeName}</span>
+        {/* <span>{selectedLang.abbr}</span> */}
         <img src={selectedLang.flag} alt="language flag" />
       </button>
 
-      <LangSelector $visible={isMenuOpen}>
+      <LangSelector $visible={isMenuOpen} open={isMenuOpen}>
         {selectableLanguagesKeys.map(lang => (
           <button
             key={lang}
             type="button"
             onClick={() => handleChangeLang(lang)}
           >
-            <span>{availableLanguages[lang].nativeName}</span>
+            <span>{availableLanguages[lang].abbr}</span>
             <img src={availableLanguages[lang].flag} alt="language flag" />
           </button>
         ))}

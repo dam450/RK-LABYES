@@ -7,15 +7,16 @@ export const LangButtonContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: left;
-    gap: 0.6rem;
+    gap: 1.2rem;
 
     outline: 0;
     border: none;
     border-radius: 8px;
+
     background-color: ${({ $isOpen, theme }) =>
       $isOpen ? theme.COLORS['blue-sky-500'] : 'transparent'};
 
-    padding: 1.2rem 2.4rem;
+    padding: 1rem;
     color: ${({ theme }) => theme.COLORS['zinc-100']};
     font-size: 2rem;
     font-family: ${({ theme }) => theme.FONTS.Primary};
@@ -40,6 +41,12 @@ export const LangButtonContainer = styled.div`
     &:focus-visible {
       color: ${({ theme }) => theme.COLORS.white};
       background-color: ${({ theme }) => theme.COLORS['blue-sky-500']};
+      outline: 1px solid ${({ theme }) => theme.COLORS['blue-hover']};
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 1px ${({ theme }) => theme.COLORS['zinc-50']};
+      outline: none;
     }
 
     &:hover {
@@ -61,7 +68,13 @@ export const LangButtonContainer = styled.div`
 `
 
 export const LangSelector = styled.div`
-  display: ${({ $visible }) => ($visible ? 'flex' : 'none')};
+  display: none;
+  opacity: 0;
+
+  &[open] {
+    display: flex;
+    opacity: 1;
+  }
 
   position: absolute;
   top: 110%;
@@ -74,18 +87,22 @@ export const LangSelector = styled.div`
   align-items: start;
   justify-content: center;
   gap: 0.8rem;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: ${({ theme }) => theme.COLORS.white};
   border-radius: 8px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
 
-  transition: opacity 0.6s ease;
-  animation: apear 250ms ease-in;
+  animation: apear 250ms ease;
+
+  transition-property: all;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+  transition-behavior: allow-discrete;
 
   @keyframes apear {
     0% {
       opacity: 0;
-      transform: translateY(-1rem);
+      transform: translateY(-1.5rem);
     }
   }
 
@@ -101,7 +118,7 @@ export const LangSelector = styled.div`
     padding: 0.4rem 0.8rem;
     width: 100%;
     text-align: left;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: ${({ theme }) => theme.COLORS['blue-sky-700']};
     font-family: ${({ theme }) => theme.FONTS.Primary};
