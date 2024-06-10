@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { MenuContainerBase, Container } from './styles'
 
 /**
  * Render burger component.
@@ -7,15 +7,17 @@ import { Container } from './styles'
  * @return {JSX.Element} The rendered animated burger component.
  */
 
-export function Hamburger({ $opened, ...rest }) {
+export function Hamburger({ opened, ...rest }) {
   return (
-    <Container $opened={$opened}>
-      <input id="checkbox" type="checkbox" {...rest} />
-      <label htmlFor="checkbox">
-        <span />
-        <span />
-        <span />
-      </label>
-    </Container>
+    <MenuContainerBase>
+      <Container $opened={opened}>
+        <input id="checkbox" type="checkbox" checked={opened} {...rest} />
+        <label htmlFor="checkbox">
+          <span />
+          <span />
+          <span />
+        </label>
+      </Container>
+    </MenuContainerBase>
   )
 }

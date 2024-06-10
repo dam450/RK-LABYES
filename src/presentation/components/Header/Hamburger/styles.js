@@ -1,4 +1,15 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+export const MenuContainerBase = styled.div`
+  height: 3.6rem;
+  width: 3.6rem;
+  z-index: 5;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`
+MenuContainerBase.displayName = 'BoxContainer'
 
 export const Container = styled.div`
   @keyframes appear {
@@ -7,12 +18,15 @@ export const Container = styled.div`
       opacity: 0;
     }
   }
-  ${({ $opened }) => ($opened ? 'position: fixed;' : '')};
-  ${({ $opened }) => ($opened ? 'right: 2rem;' : '')};
+
+  ${({ $opened }) =>
+    $opened &&
+    css`
+      position: fixed;
+      right: 2rem;
+    `}
 
   animation: appear 1s;
-
-  z-index: 5;
 
   input {
     display: none;
