@@ -19,4 +19,8 @@ export const Container = styled.div`
       opacity: 1;
     }
   }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 5rem;
+  }
 `
