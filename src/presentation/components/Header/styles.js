@@ -116,6 +116,8 @@ export const LinkWrapper = styled.li`
   list-style: none;
   position: relative;
 
+  padding-top: 0.4rem;
+
   &::before {
     content: '';
     position: absolute;
