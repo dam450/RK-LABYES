@@ -3,7 +3,7 @@ import { defaultCountries, parseCountry } from 'react-international-phone'
 export const countries = defaultCountries
   .filter(country => {
     const { iso2 } = parseCountry(country)
-    return ['br', 'ar', 'py', 'uy'].includes(iso2)
+    return ['br', 'ar', 'py', 'uy', 'cl'].includes(iso2)
   })
   .map(country => {
     const countrySlug = country[1]
