@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 import { sendMail } from '../../../../../services/sendMail'
@@ -13,11 +13,14 @@ import { FormContainer, ShortButton, ErrorText } from './styles'
 import { PhoneInput } from '../../../../components/PhoneInput'
 import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
 
+const numberDigitPattern = /[0-9]/
+
 export function ContactForm() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hasUserStartedTyping, setHasUserStartedTyping] = useState(false)
   const [phone, setPhone] = useState('')
+  const phoneInputRef = useRef(null)
   const { isPhoneValid } = usePhoneInputValidation(phone)
 
   const { t } = useTranslation()
@@ -73,7 +76,13 @@ export function ContactForm() {
 
   useEffect(() => {
     window.addEventListener('keyup', event => {
-      if (event.key.match(/[a-zA-Z0-9]/)) setHasUserStartedTyping(true)
+      const isNumberDigit = numberDigitPattern.test(event.key)
+      if (isNumberDigit) {
+        const isPhoneInputFocused =
+          document.activeElement === phoneInputRef.current
+
+        if (isPhoneInputFocused) setHasUserStartedTyping(true)
+      }
     })
   }, [hasUserStartedTyping])
 
@@ -120,6 +129,7 @@ export function ContactForm() {
                 value={phone}
                 setValue={setPhone}
                 isPhoneValid={isPhoneValid || !hasUserStartedTyping}
+                inputRef={phoneInputRef}
                 inputProps={{
                   name: 'whatsapp',
                   id: 'whatsapp',
