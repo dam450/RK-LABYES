@@ -1,21 +1,9 @@
-import { PhoneNumberUtil } from 'google-libphonenumber'
-
-const phoneUtil = PhoneNumberUtil.getInstance()
-
 function isValidPhoneNumber(phone) {
   try {
-    const rawPhoneNumber = phoneUtil.parseAndKeepRawInput(phone)
-    const countryCode = phoneUtil.getRegionCodeForCountryCode(
-      rawPhoneNumber.getCountryCode(),
-    )
+    if (phone.length >= 11 && phone.length <= 14) return true
 
-    if (countryCode === 'AR') {
-      const hasPrefixNine = phone[3] === '9'
-
-      if (hasPrefixNine && phone.length >= 9) return true
-    }
-
-    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
+    // return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
+    // validation used with the lib, removed by now
   } catch (error) {
     return false
   }
