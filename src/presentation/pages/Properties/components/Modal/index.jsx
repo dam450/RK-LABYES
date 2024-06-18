@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { sendMail } from '../../../../../services/sendMail'
@@ -19,14 +19,10 @@ import {
   InputGroup,
   SuccessModal,
   SuccessText,
-  ErrorText,
 } from './styles'
 
 import closeIcon from '../../../../assets/x-close-icon.svg'
 import verifiedGif from '../../../../assets/verified.gif'
-import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
-
-const numberDigitPattern = /[0-9]/
 
 /**
  * Creates a styled Modal component.
@@ -45,10 +41,6 @@ export function Modal({
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(success)
   const [phone, setPhone] = useState('')
-  const phoneInputRef = useRef(null)
-  const { isPhoneValid } = usePhoneInputValidation(phone)
-
-  const [hasUserStartedTyping, setHasUserStartedTyping] = useState(false)
 
   const { t } = useTranslation()
 
@@ -68,8 +60,6 @@ export function Modal({
     event => {
       if (event && event.target) {
         event.preventDefault()
-
-        if (!isPhoneValid) return
 
         setIsLoading(true)
 
@@ -100,7 +90,7 @@ export function Modal({
           })
       }
     },
-    [isPhoneValid, propertyCode, sendMailTo, handleCloseModal],
+    [propertyCode, sendMailTo, handleCloseModal],
   )
 
   useEffect(() => {
@@ -108,14 +98,6 @@ export function Modal({
       if (event.key === 'Escape' && isOpen) handleCloseModal()
 
       if (event.key === 'Enter' && isOpen) handleSubmit()
-
-      const isNumberDigit = numberDigitPattern.test(event.key)
-      if (isNumberDigit) {
-        const isPhoneInputFocused =
-          document.activeElement === phoneInputRef.current
-
-        if (isPhoneInputFocused) setHasUserStartedTyping(true)
-      }
     })
 
     return () => {
@@ -125,7 +107,7 @@ export function Modal({
         if (event.key === 'Enter' && isOpen) handleSubmit()
       })
     }
-  }, [handleSubmit, isOpen, handleCloseModal, hasUserStartedTyping])
+  }, [handleSubmit, isOpen, handleCloseModal])
 
   return isOpen ? (
     <Container>
@@ -175,18 +157,13 @@ export function Modal({
                 <PhoneInput
                   value={phone}
                   setValue={setPhone}
-                  isPhoneValid={isPhoneValid || !hasUserStartedTyping}
-                  inputRef={phoneInputRef}
+                  isPhoneValid
                   inputProps={{
                     name: 'whatsapp',
                     id: 'whatsapp',
                     required: true,
                   }}
                 />
-
-                {!isPhoneValid && hasUserStartedTyping && (
-                  <ErrorText>O formato é inválido.</ErrorText>
-                )}
               </div>
             </InputGroup>
 

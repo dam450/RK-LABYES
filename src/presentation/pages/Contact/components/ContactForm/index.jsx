@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useBrokerProfile } from '../../../../../data/BrokerData'
 import { sendMail } from '../../../../../services/sendMail'
@@ -9,19 +9,13 @@ import { TextArea } from '../../../../components/TextArea'
 import { SelectOption } from '../../../../components/SelectOption'
 import { Modal } from '../../../Properties/components/Modal'
 
-import { FormContainer, ShortButton, ErrorText } from './styles'
+import { FormContainer, ShortButton } from './styles'
 import { PhoneInput } from '../../../../components/PhoneInput'
-import { usePhoneInputValidation } from '../../../../../validation/phoneInput'
-
-const numberDigitPattern = /[0-9]/
 
 export function ContactForm() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [hasUserStartedTyping, setHasUserStartedTyping] = useState(false)
   const [phone, setPhone] = useState('')
-  const phoneInputRef = useRef(null)
-  const { isPhoneValid } = usePhoneInputValidation(phone)
 
   const { t } = useTranslation()
 
@@ -37,8 +31,6 @@ export function ContactForm() {
 
   function handleSubmit(event) {
     event.preventDefault()
-
-    if (!isPhoneValid) return
 
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData)
@@ -73,18 +65,6 @@ export function ContactForm() {
         setIsFormSubmitted(false)
       })
   }
-
-  useEffect(() => {
-    window.addEventListener('keyup', event => {
-      const isNumberDigit = numberDigitPattern.test(event.key)
-      if (isNumberDigit) {
-        const isPhoneInputFocused =
-          document.activeElement === phoneInputRef.current
-
-        if (isPhoneInputFocused) setHasUserStartedTyping(true)
-      }
-    })
-  }, [hasUserStartedTyping])
 
   return (
     <FormContainer onSubmit={handleSubmit}>
@@ -128,18 +108,13 @@ export function ContactForm() {
               <PhoneInput
                 value={phone}
                 setValue={setPhone}
-                isPhoneValid={isPhoneValid || !hasUserStartedTyping}
-                inputRef={phoneInputRef}
+                isPhoneValid
                 inputProps={{
                   name: 'whatsapp',
                   id: 'whatsapp',
                   required: true,
                 }}
               />
-
-              {!isPhoneValid && hasUserStartedTyping && (
-                <ErrorText>O formato é inválido.</ErrorText>
-              )}
             </div>
           </div>
         </fieldset>

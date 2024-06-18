@@ -4,9 +4,7 @@ import { PhoneInput } from 'react-international-phone'
 import 'react-international-phone/style.css'
 
 export const StyledPhoneInput = styled(PhoneInput)`
-  border: 1px solid
-    ${({ theme, isValid }) =>
-      isValid ? theme.COLORS['blue-sky-600'] : theme.COLORS.tomate};
+  border: 1px solid ${({ theme }) => theme.COLORS['blue-sky-600']};
   color: ${({ theme }) => theme.COLORS['blue-sky-700']};
 
   border-radius: 5px;
