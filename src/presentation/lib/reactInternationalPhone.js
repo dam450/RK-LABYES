@@ -1,9 +1,11 @@
 import { defaultCountries, parseCountry } from 'react-international-phone'
 
+const SELECTED_COUNTRIES = ['br', 'ar', 'py', 'uy', 'cl']
+
 export const countries = defaultCountries
   .filter(country => {
     const { iso2 } = parseCountry(country)
-    return ['br', 'ar', 'py', 'uy', 'cl'].includes(iso2)
+    return SELECTED_COUNTRIES.includes(iso2)
   })
   .map(country => {
     const countrySlug = country[1]
@@ -15,9 +17,9 @@ export const countries = defaultCountries
       return newCountry
     }
 
-    if (countrySlug === 'ar') {
+    if (SELECTED_COUNTRIES.includes(countrySlug)) {
       const newCountry = [...country]
-      newCountry[3] = '. ... ... ....' // new Arg mask
+      newCountry[3] = '. ... ... ....' // new Argentina, Chile, Paraguay and Uruguay mask
 
       return newCountry
     }

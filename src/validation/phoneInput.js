@@ -12,12 +12,10 @@ function isValidPhoneNumber(phone) {
     if (countryCode === 'AR') {
       const hasPrefixNine = phone[3] === '9'
 
-      if (hasPrefixNine && phone.length >= 9) {
-        return true
-      }
+      if (hasPrefixNine && phone.length >= 9) return true
     }
 
-    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone, 'AR'))
+    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
   } catch (error) {
     return false
   }
