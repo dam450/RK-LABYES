@@ -49,6 +49,7 @@ export const ImageContainer = styled.div`
 
       img:nth-child(1) {
         z-index: 2;
+        left: 5%;
       }
 
       img:nth-child(2) {
@@ -70,10 +71,6 @@ export const ImageContainer = styled.div`
       img:nth-child(1),
       img:nth-child(2) {
         width: 42.7rem !important;
-      }
-
-      img:nth-child(1) {
-        left: 5%;
       }
     }
   }
