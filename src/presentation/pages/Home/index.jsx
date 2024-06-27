@@ -8,8 +8,8 @@ import { Carousel } from '../../components/Carousel'
 
 import { useBrokerProfile } from '../../../data/BrokerData'
 
-import videoMobile from '../../assets/rk-video-mobile.mp4'
-import videoMobilePoster from '../../assets/rk-video-mobile.jpg'
+import videoMobile from '../../assets/RK_IMOB_FINAL_VERTICAL.mp4'
+import videoMobilePoster from '../../assets/RK_IMOB_FINAL_VERTICAL.png'
 import videoDesktop from '../../assets/RK_IMOB_FINAL__720.mp4'
 import videoDesktopPoster from '../../assets/RK_IMOB_FINAL__720.jpg'
 
